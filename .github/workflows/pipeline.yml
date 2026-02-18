@@ -1,0 +1,114 @@
+name: softball-data-pipeline
+
+on:
+  schedule:
+    - cron: '0 10 * * 1,4'
+    - cron: '0 11 * * 1,4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: softball-data-pipeline
+  cancel-in-progress: false
+
+jobs:
+  scrape_and_transform:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.gate.outputs.should_run }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Gate to 6:00 AM America/New_York
+        id: gate
+        run: |
+          SHOULD_RUN=$(python scripts/should_run_now.py)
+          echo "should_run=$SHOULD_RUN" >> "$GITHUB_OUTPUT"
+
+      - name: Build dataset
+        if: steps.gate.outputs.should_run == 'true' || github.event_name == 'workflow_dispatch'
+        run: python scripts/build_dataset.py --season $(date +%Y)
+
+      - name: Upload data artifacts
+        if: steps.gate.outputs.should_run == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-data
+          path: |
+            data/raw
+            data/processed
+            data/public
+
+  validate_data:
+    needs: scrape_and_transform
+    if: needs.scrape_and_transform.outputs.should_run == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Download pipeline data
+        uses: actions/download-artifact@v4
+        with:
+          name: pipeline-data
+          path: .
+
+      - name: Validate outputs
+        run: python scripts/validate_dataset.py
+
+      - name: Upload validation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: validation_report.json
+
+      - name: Job summary
+        if: always()
+        run: |
+          echo "## Validation" >> $GITHUB_STEP_SUMMARY
+          cat validation_report.json >> $GITHUB_STEP_SUMMARY
+
+  publish_data_commit:
+    needs: [scrape_and_transform, validate_data]
+    if: needs.scrape_and_transform.outputs.should_run == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download pipeline data
+        uses: actions/download-artifact@v4
+        with:
+          name: pipeline-data
+          path: .
+
+      - name: Commit updated data if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes to commit"
+          else
+            git commit -m "chore(data): refresh softball dataset"
+            git push
+          fi

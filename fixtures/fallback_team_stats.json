@@ -1,0 +1,7 @@
+[
+  {"team_id":"tennessee","team_name":"Tennessee","conference":"SEC","g":12,"ab":320,"r":90,"h":110,"2b":20,"3b":4,"hr":18,"bb":45,"so":60,"sb":15,"ip":85,"ha":50,"wh":80,"er":14,"k":100,"opp_ba":0.182,"fe":8},
+  {"team_id":"oklahoma","team_name":"Oklahoma","conference":"SEC","g":12,"ab":330,"r":98,"h":120,"2b":22,"3b":3,"hr":20,"bb":42,"so":55,"sb":11,"ip":84,"ha":48,"wh":74,"er":12,"k":105,"opp_ba":0.176,"fe":7},
+  {"team_id":"ucla","team_name":"UCLA","conference":"Big Ten","g":12,"ab":310,"r":82,"h":104,"2b":18,"3b":5,"hr":14,"bb":39,"so":58,"sb":13,"ip":86,"ha":58,"wh":86,"er":16,"k":94,"opp_ba":0.201,"fe":10},
+  {"team_id":"florida-state","team_name":"Florida State","conference":"ACC","g":12,"ab":315,"r":88,"h":106,"2b":19,"3b":4,"hr":16,"bb":40,"so":54,"sb":12,"ip":83,"ha":54,"wh":82,"er":15,"k":98,"opp_ba":0.193,"fe":9},
+  {"team_id":"texas","team_name":"Texas","conference":"SEC","g":12,"ab":325,"r":85,"h":108,"2b":17,"3b":2,"hr":15,"bb":38,"so":61,"sb":14,"ip":85,"ha":56,"wh":85,"er":17,"k":97,"opp_ba":0.198,"fe":11}
+]

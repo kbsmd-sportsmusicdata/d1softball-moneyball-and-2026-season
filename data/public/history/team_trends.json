@@ -1,0 +1,85 @@
+{
+  "snapshots": [
+    {
+      "run_date": "2026-02-17",
+      "teams": [
+        {
+          "team_id": "oklahoma",
+          "team_name": "Oklahoma",
+          "composite_score": 1.3704,
+          "composite_rank": 1
+        },
+        {
+          "team_id": "tennessee",
+          "team_name": "Tennessee",
+          "composite_score": 0.2641,
+          "composite_rank": 2
+        },
+        {
+          "team_id": "florida-state",
+          "team_name": "Florida State",
+          "composite_score": -0.0511,
+          "composite_rank": 3
+        },
+        {
+          "team_id": "ucla",
+          "team_name": "UCLA",
+          "composite_score": -0.6621,
+          "composite_rank": 4
+        },
+        {
+          "team_id": "texas",
+          "team_name": "Texas",
+          "composite_score": -0.9214,
+          "composite_rank": 5
+        }
+      ]
+    },
+    {
+      "run_date": "2026-02-17",
+      "teams": [
+        {
+          "team_id": "t",
+          "team_name": "T",
+          "composite_score": 1,
+          "composite_rank": 1
+        }
+      ]
+    },
+    {
+      "run_date": "2026-02-17",
+      "teams": [
+        {
+          "team_id": "oklahoma",
+          "team_name": "Oklahoma",
+          "composite_score": 1.3704,
+          "composite_rank": 1
+        },
+        {
+          "team_id": "tennessee",
+          "team_name": "Tennessee",
+          "composite_score": 0.2641,
+          "composite_rank": 2
+        },
+        {
+          "team_id": "florida-state",
+          "team_name": "Florida State",
+          "composite_score": -0.0511,
+          "composite_rank": 3
+        },
+        {
+          "team_id": "ucla",
+          "team_name": "UCLA",
+          "composite_score": -0.6621,
+          "composite_rank": 4
+        },
+        {
+          "team_id": "texas",
+          "team_name": "Texas",
+          "composite_score": -0.9214,
+          "composite_rank": 5
+        }
+      ]
+    }
+  ]
+}
