@@ -12,6 +12,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from ingestion.sources.espn_poll import fetch_top25
+from ingestion.sources.espn_stats import fetch_team_player_stats_from_espn
 from ingestion.sources.fallbacks import fetch_fallback_stats
 from ingestion.sources.ncaa import SourceFetchError, fetch_team_player_stats
 from transform.cleaning import clean_player_rows, clean_team_rows
@@ -32,20 +33,54 @@ def main() -> None:
 
     fixture_path = Path("fixtures/top25_espn.json") if args.fixtures else None
     top25 = fetch_top25(run_date=run_date, season=season, fixture_path=fixture_path)
+    if len(top25) < 25 and not args.fixtures:
+        raise RuntimeError(
+            f"Top 25 poll fetch returned only {len(top25)} teams in live mode; aborting for data completeness."
+        )
 
-    try:
-        teams_raw, players_raw, provenance = fetch_team_player_stats(
+    teams_raw: list[dict]
+    players_raw: list[dict]
+    provenance: list[dict]
+
+    if args.fixtures:
+        try:
+            teams_raw, players_raw, provenance = fetch_team_player_stats(
+                top25=top25,
+                run_date=run_date,
+                season=season,
+                fixture_dir=Path("fixtures"),
+            )
+        except SourceFetchError:
+            teams_raw, players_raw, provenance = fetch_fallback_stats(
+                run_date=run_date,
+                season=season,
+                fixture_dir=Path("fixtures"),
+            )
+    else:
+        # Live mode priority:
+        # 1) ESPN team/player ingestion (team totals + full rosters)
+        # 2) NCAA ingestion
+        # 3) fixture fallback
+        teams_raw, players_raw, provenance = fetch_team_player_stats_from_espn(
             top25=top25,
             run_date=run_date,
             season=season,
-            fixture_dir=Path("fixtures") if args.fixtures else None,
         )
-    except SourceFetchError:
-        teams_raw, players_raw, provenance = fetch_fallback_stats(
-            run_date=run_date,
-            season=season,
-            fixture_dir=Path("fixtures"),
-        )
+        live_espn_teams = [p for p in provenance if p.get("source") == "espn" and p.get("status") == "live"]
+        if len(live_espn_teams) < len(top25):
+            try:
+                teams_raw, players_raw, provenance = fetch_team_player_stats(
+                    top25=top25,
+                    run_date=run_date,
+                    season=season,
+                    fixture_dir=None,
+                )
+            except SourceFetchError:
+                teams_raw, players_raw, provenance = fetch_fallback_stats(
+                    run_date=run_date,
+                    season=season,
+                    fixture_dir=Path("fixtures"),
+                )
 
     teams = clean_team_rows(teams_raw, run_date=run_date, season=season)
     players = clean_player_rows(players_raw, run_date=run_date, season=season)
@@ -121,20 +156,21 @@ def append_trend_snapshot(path: Path, teams: list[dict], run_date: str) -> dict:
     else:
         existing = {"snapshots": []}
 
-    existing["snapshots"].append(
-        {
-            "run_date": run_date,
-            "teams": [
-                {
-                    "team_id": team["team_id"],
-                    "team_name": team["team_name"],
-                    "composite_score": team["composite_score"],
-                    "composite_rank": team["composite_rank"],
-                }
-                for team in teams
-            ],
-        }
-    )
+    snapshot = {
+        "run_date": run_date,
+        "teams": [
+            {
+                "team_id": team["team_id"],
+                "team_name": team["team_name"],
+                "composite_score": team["composite_score"],
+                "composite_rank": team["composite_rank"],
+            }
+            for team in teams
+        ],
+    }
+
+    existing["snapshots"] = [row for row in existing["snapshots"] if row.get("run_date") != run_date]
+    existing["snapshots"].append(snapshot)
 
     existing["snapshots"] = existing["snapshots"][-30:]
     return existing

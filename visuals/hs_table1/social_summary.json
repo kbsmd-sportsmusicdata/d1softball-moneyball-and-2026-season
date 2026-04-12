@@ -1,6 +1,6 @@
 {
   "input_dir": "data/hs_table1",
-  "output_dir": "data/hs_table1/social",
+  "output_dir": "visuals/hs_table1",
   "team_season_rows": 1526,
   "min_games_threshold": 30,
   "eligible_team_rows": 1440,

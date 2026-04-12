@@ -1,0 +1,14 @@
+{
+  "sports": [
+    {
+      "leagues": [
+        {
+          "teams": [
+            {"team": {"id": "537", "displayName": "Tennessee Lady Volunteers", "abbreviation": "TENN"}},
+            {"team": {"id": "201", "displayName": "Oklahoma Sooners", "abbreviation": "OU"}}
+          ]
+        }
+      ]
+    }
+  ]
+}

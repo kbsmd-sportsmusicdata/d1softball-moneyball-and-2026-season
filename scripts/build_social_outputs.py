@@ -18,7 +18,7 @@ import statsmodels.formula.api as smf
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build social-ready assets from H&S outputs.")
     parser.add_argument("--input-dir", type=Path, default=Path("data/hs_table1"))
-    parser.add_argument("--output-dir", type=Path, default=Path("data/hs_table1/social"))
+    parser.add_argument("--output-dir", type=Path, default=Path("visuals/hs_table1"))
     parser.add_argument("--top-n", type=int, default=5, help="Top N over/under performers to highlight.")
     parser.add_argument("--min-games", type=int, default=30, help="Minimum games for over/under eligibility.")
     return parser.parse_args()

@@ -10,8 +10,8 @@ import pandas as pd
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate ready-to-post storytelling insights for H&S softball outputs.")
     parser.add_argument("--input-dir", type=Path, default=Path("data/hs_table1"))
-    parser.add_argument("--social-dir", type=Path, default=Path("data/hs_table1/social"))
-    parser.add_argument("--output", type=Path, default=Path("data/hs_table1/social/storytelling_posts.md"))
+    parser.add_argument("--social-dir", type=Path, default=Path("visuals/hs_table1"))
+    parser.add_argument("--output", type=Path, default=Path("visuals/hs_table1/storytelling_posts.md"))
     parser.add_argument("--min-games", type=int, default=30)
     return parser.parse_args()
 

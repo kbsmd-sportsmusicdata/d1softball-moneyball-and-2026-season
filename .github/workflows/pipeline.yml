@@ -72,6 +72,9 @@ jobs:
           name: pipeline-data
           path: .
 
+      - name: Run parser contract tests
+        run: pytest tests/test_parser_contracts.py tests/test_sources.py -q
+
       - name: Validate outputs
         run: python scripts/validate_dataset.py
 
@@ -85,7 +88,42 @@ jobs:
         if: always()
         run: |
           echo "## Validation" >> $GITHUB_STEP_SUMMARY
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("validation_report.json").read_text())
+          gate = report.get("quality_gates", {})
+          threshold = gate.get("min_hitters_with_ab", 10)
+          counts = gate.get("team_hitter_counts", {})
+
+          failing = [(team, int(count)) for team, count in counts.items() if int(count) < int(threshold)]
+          failing.sort(key=lambda x: (x[1], x[0]))
+
+          print("### Top 25 Quality Summary")
+          print(f"- Threshold: `{threshold}` hitters with `AB > 0` per team")
+          print(f"- Teams evaluated: `{len(counts)}`")
+          print(f"- Failing teams: `{len(failing)}`")
+
+          if failing:
+              print("")
+              print("| Team | Hitters with AB > 0 |")
+              print("|---|---:|")
+              for team, count in failing:
+                  print(f"| {team} | {count} |")
+          else:
+              print("")
+              print("All Top-25 teams passed the hitter coverage gate.")
+          PY
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "<details><summary>Full validation_report.json</summary>" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
           cat validation_report.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "</details>" >> $GITHUB_STEP_SUMMARY
 
   publish_data_commit:
     needs: [scrape_and_transform, validate_data]

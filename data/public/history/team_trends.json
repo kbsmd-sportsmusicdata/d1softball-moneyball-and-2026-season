@@ -1,48 +1,157 @@
 {
   "snapshots": [
     {
-      "run_date": "2026-02-17",
+      "run_date": "2026-04-10",
       "teams": [
         {
-          "team_id": "oklahoma",
-          "team_name": "Oklahoma",
-          "composite_score": 1.3704,
+          "team_id": "texas-a-m",
+          "team_name": "Texas A&M",
+          "composite_score": 0.7461,
           "composite_rank": 1
-        },
-        {
-          "team_id": "tennessee",
-          "team_name": "Tennessee",
-          "composite_score": 0.2641,
-          "composite_rank": 2
         },
         {
           "team_id": "florida-state",
           "team_name": "Florida State",
-          "composite_score": -0.0511,
+          "composite_score": 0.6932,
+          "composite_rank": 2
+        },
+        {
+          "team_id": "alabama",
+          "team_name": "Alabama",
+          "composite_score": 0.6164,
           "composite_rank": 3
         },
         {
-          "team_id": "ucla",
-          "team_name": "UCLA",
-          "composite_score": -0.6621,
+          "team_id": "virginia-tech",
+          "team_name": "Virginia Tech",
+          "composite_score": 0.5943,
           "composite_rank": 4
+        },
+        {
+          "team_id": "south-carolina",
+          "team_name": "South Carolina",
+          "composite_score": 0.5288,
+          "composite_rank": 5
+        },
+        {
+          "team_id": "arkansas",
+          "team_name": "Arkansas",
+          "composite_score": 0.4663,
+          "composite_rank": 6
+        },
+        {
+          "team_id": "georgia",
+          "team_name": "Georgia",
+          "composite_score": 0.4283,
+          "composite_rank": 7
+        },
+        {
+          "team_id": "mississippi-state",
+          "team_name": "Mississippi State",
+          "composite_score": 0.345,
+          "composite_rank": 8
+        },
+        {
+          "team_id": "stanford",
+          "team_name": "Stanford",
+          "composite_score": 0.2708,
+          "composite_rank": 9
+        },
+        {
+          "team_id": "nebraska",
+          "team_name": "Nebraska",
+          "composite_score": 0.156,
+          "composite_rank": 10
+        },
+        {
+          "team_id": "oklahoma-state",
+          "team_name": "Oklahoma State",
+          "composite_score": 0.0834,
+          "composite_rank": 11
         },
         {
           "team_id": "texas",
           "team_name": "Texas",
-          "composite_score": -0.9214,
-          "composite_rank": 5
-        }
-      ]
-    },
-    {
-      "run_date": "2026-02-17",
-      "teams": [
+          "composite_score": 0.0544,
+          "composite_rank": 12
+        },
         {
-          "team_id": "t",
-          "team_name": "T",
-          "composite_score": 1,
-          "composite_rank": 1
+          "team_id": "ucla",
+          "team_name": "UCLA",
+          "composite_score": 0.0457,
+          "composite_rank": 13
+        },
+        {
+          "team_id": "oregon",
+          "team_name": "Oregon",
+          "composite_score": -0.0262,
+          "composite_rank": 14
+        },
+        {
+          "team_id": "florida",
+          "team_name": "Florida",
+          "composite_score": -0.0734,
+          "composite_rank": 15
+        },
+        {
+          "team_id": "duke",
+          "team_name": "Duke",
+          "composite_score": -0.1198,
+          "composite_rank": 16
+        },
+        {
+          "team_id": "texas-tech",
+          "team_name": "Texas Tech",
+          "composite_score": -0.1224,
+          "composite_rank": 17
+        },
+        {
+          "team_id": "lsu",
+          "team_name": "LSU",
+          "composite_score": -0.1284,
+          "composite_rank": 18
+        },
+        {
+          "team_id": "washington",
+          "team_name": "Washington",
+          "composite_score": -0.484,
+          "composite_rank": 19
+        },
+        {
+          "team_id": "oklahoma",
+          "team_name": "Oklahoma",
+          "composite_score": -0.6226,
+          "composite_rank": 20
+        },
+        {
+          "team_id": "arizona",
+          "team_name": "Arizona",
+          "composite_score": -0.6226,
+          "composite_rank": 21
+        },
+        {
+          "team_id": "virginia",
+          "team_name": "Virginia",
+          "composite_score": -0.6226,
+          "composite_rank": 22
+        },
+        {
+          "team_id": "ucf",
+          "team_name": "UCF",
+          "composite_score": -0.6226,
+          "composite_rank": 23
+        },
+        {
+          "team_id": "grand-canyon",
+          "team_name": "Grand Canyon",
+          "composite_score": -0.6226,
+          "composite_rank": 24
+        },
+        {
+          "team_id": "tennessee",
+          "team_name": "Tennessee",
+          "composite_score": -0.9614,
+          "composite_rank": 25
         }
       ]
     },
