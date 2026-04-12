@@ -1,0 +1,37 @@
+[
+  {
+    "season":2021,
+    "expected_games":6342,
+    "parsed_games":6327,
+    "dropped_games":15,
+    "coverage_pct":0.9976348155
+  },
+  {
+    "season":2022,
+    "expected_games":7725,
+    "parsed_games":7709,
+    "dropped_games":16,
+    "coverage_pct":0.9979288026
+  },
+  {
+    "season":2023,
+    "expected_games":7944,
+    "parsed_games":7908,
+    "dropped_games":36,
+    "coverage_pct":0.9954682779
+  },
+  {
+    "season":2024,
+    "expected_games":7989,
+    "parsed_games":7955,
+    "dropped_games":34,
+    "coverage_pct":0.9957441482
+  },
+  {
+    "season":2025,
+    "expected_games":8098,
+    "parsed_games":8062,
+    "dropped_games":36,
+    "coverage_pct":0.9955544579
+  }
+]

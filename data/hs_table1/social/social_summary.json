@@ -1,0 +1,15 @@
+{
+  "input_dir": "data/hs_table1",
+  "output_dir": "data/hs_table1/social",
+  "team_season_rows": 1526,
+  "min_games_threshold": 30,
+  "eligible_team_rows": 1440,
+  "over_under_rows": 10,
+  "artifacts": [
+    "table1_card.png",
+    "season_trend_obp_diff_vs_wpc.png",
+    "top_over_under_performers.png",
+    "top_over_under_performers.csv",
+    "top_over_under_performers.md"
+  ]
+}

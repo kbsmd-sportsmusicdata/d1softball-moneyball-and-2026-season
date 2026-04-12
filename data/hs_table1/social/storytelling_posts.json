@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Table 1 takeaway",
+    "chart": "table1_card.png",
+    "caption": "Across 2021-2025 D1 softball, the strongest coefficient in the combined model is `obpfor` (+1.703). Getting on base and limiting opponent baserunners still drives wins."
+  },
+  {
+    "title": "OBP edge vs wins",
+    "chart": "season_trend_obp_diff_vs_wpc.png",
+    "caption": "Biggest OBP edge (min 30 games): Oklahoma (2022) at +0.240 with a 94.8% win rate."
+  },
+  {
+    "title": "Top overperformer",
+    "chart": "top_over_under_performers.png",
+    "caption": "Top overperformer vs model expectation: Eastern Ky. (2021), actual 67.3% vs predicted 50.6% (residual +0.167)."
+  },
+  {
+    "title": "Top underperformer",
+    "chart": "top_over_under_performers.png",
+    "caption": "Top underperformer vs model expectation: Coppin St. (2025), actual 9.7% vs predicted 30.8% (residual -0.211)."
+  },
+  {
+    "title": "Season-level context",
+    "chart": "season_trend_obp_diff_vs_wpc.png",
+    "caption": "Season with strongest average OBP differential (min 30 games): 2021 (+0.000). At the other end, Mississippi Val. (2025) posted -0.240."
+  }
+]
