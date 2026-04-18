@@ -20,7 +20,8 @@ python3 scripts/build_dataset.py --season 2026 --run-date 2026-02-17
 ```
 
 Notes:
-- Live mode requires ESPN Top 25 to return all 25 teams; otherwise the run aborts for completeness.
+- Live mode first tries the ESPN/USA Softball Top 25 poll, then falls back to the checked-in poll fixture if ESPN returns incomplete results.
+- Live player extraction prefers ESPN, but if player rows are zeroed or the ESPN fetch fails, the build backfills player totals from D1Softball team pages.
 - NCAA org-id hard overrides can be set in `fixtures/team_org_id_overrides.json`.
 - Parser contract fixtures live in `fixtures/contract/`.
 
@@ -44,6 +45,57 @@ npm install
 npm run build
 npm run dev
 ```
+
+### Manual Workbook Report
+
+Regenerate the polished HTML-ready report artifacts for the April 2026 workbook import:
+
+```bash
+make report
+```
+
+Outputs:
+
+- `reports/d1softball_manual_april2026/report.md`
+- `reports/d1softball_manual_april2026/report_data.json`
+- `reports/d1softball_manual_april2026/report_metadata.json`
+- `reports/d1softball_manual_april2026/figures/*.svg`
+
+Dashboard route:
+
+- `dashboard/app/report/page.tsx` renders the report as a polished HTML page.
+
+## EDA Analyst Agent v1
+
+Run notebook-style EDA on the latest processed team/player datasets:
+
+```bash
+python3 scripts/eda_analyst_agent.py
+```
+
+Optional path overrides:
+
+```bash
+python3 scripts/eda_analyst_agent.py \
+  --teams-path data/processed/2026-04-10/teams.csv \
+  --players-path data/processed/2026-04-10/players.csv \
+  --run-label first-pass
+```
+
+Outputs per run:
+
+- `eda_runs/YYYY-MM-DDTHHMMSSZ/run_log.ipynb`
+- `eda_runs/YYYY-MM-DDTHHMMSSZ/run_metadata.json`
+- `eda_runs/YYYY-MM-DDTHHMMSSZ/dataset_profile.json`
+- `eda_runs/YYYY-MM-DDTHHMMSSZ/findings.json`
+- `eda_runs/YYYY-MM-DDTHHMMSSZ/storyboard.json`
+- `eda_runs/YYYY-MM-DDTHHMMSSZ/deeper_analysis.json`
+- `eda_runs/YYYY-MM-DDTHHMMSSZ/summary.md`
+- `eda_runs/latest.json`
+
+Dashboard viewer:
+
+- `dashboard/app/eda/page.tsx` renders the latest run from `eda_runs/latest.json`.
 
 ## Data outputs
 
@@ -115,6 +167,7 @@ data/
   processed/
   public/
   hs_table1/
+eda_runs/
 scripts/
 visuals/
   hs_table1/

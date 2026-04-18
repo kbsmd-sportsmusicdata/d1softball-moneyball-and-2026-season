@@ -130,13 +130,513 @@ a {
   min-height: 280px;
 }
 
+.inline-link {
+  text-decoration: underline;
+}
+
+.eda-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.eda-card h4 {
+  margin: 8px 0;
+}
+
+.eda-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.eda-list li {
+  margin-bottom: 8px;
+}
+
+.report-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 48px;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.report-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr);
+  gap: 16px;
+  padding: 28px;
+  border-radius: 24px;
+  color: #fff;
+  background:
+    radial-gradient(circle at top right, rgba(239, 179, 33, 0.18), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(122, 155, 158, 0.22), transparent 30%),
+    linear-gradient(135deg, #1b3a52 0%, #234a64 52%, #162a38 100%);
+  box-shadow: 0 22px 48px rgba(27, 58, 82, 0.18);
+}
+
+.report-hero-empty {
+  min-height: 280px;
+  align-items: center;
+}
+
+.report-hero-copy h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  font-family: Montserrat, Inter, system-ui, sans-serif;
+}
+
+.report-subtitle {
+  margin: 0;
+  max-width: 68ch;
+  font-size: 18px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.report-intro-note {
+  margin: 12px 0 0;
+  max-width: 70ch;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.report-eyebrow,
+.section-kicker {
+  display: inline-block;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.report-eyebrow {
+  color: #f6d8ae;
+}
+
+.report-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.report-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.report-method-callout {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--accent-2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.report-method-callout strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.report-hero-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.report-panel-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.report-panel-path {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.report-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.report-kpi {
+  padding: 14px;
+  border-radius: 14px;
+  background: #fbfaf7;
+  border: 1px solid var(--line);
+}
+
+.report-kpi-value {
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.report-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title-wrap h2 {
+  margin: 2px 0 0;
+  font-size: clamp(24px, 2.5vw, 32px);
+  letter-spacing: -0.02em;
+}
+
+.report-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.report-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.report-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.report-mini-value {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.code-inline {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  word-break: break-word;
+}
+
+.report-bullets {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.report-table-card {
+  overflow: hidden;
+}
+
+.report-table th {
+  position: sticky;
+  top: 0;
+  background: #f4efe8;
+  z-index: 1;
+}
+
+.report-table tbody tr:nth-child(odd) {
+  background: #fcfbf8;
+}
+
+.report-figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.report-figure-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.report-figure-frame {
+  background: linear-gradient(180deg, #fdfbf8 0%, #f7f3ec 100%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  overflow: auto;
+}
+
+.report-figure-frame svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.report-figure-caption {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.report-storyboard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.report-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 4px solid var(--copper);
+}
+
+.report-step-card h3,
+.report-finding-card h3,
+.report-analysis-card h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.report-step-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.report-step-number {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--navy);
+}
+
+.report-step-type,
+.report-step-finding,
+.report-provenance,
+.report-analysis-priority,
+.report-pill,
+.report-tag,
+.report-meta-list dt {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+
+.report-step-transition {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.report-finding-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.report-finding-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 4px solid var(--navy);
+}
+
+.report-finding-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.report-finding-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.report-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f4efe8;
+  border: 1px solid var(--line);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.report-provenance {
+  color: var(--muted);
+}
+
+.report-insight {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.report-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.report-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.report-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(200, 143, 90, 0.12);
+  color: var(--navy);
+  border: 1px solid rgba(200, 143, 90, 0.32);
+  font-weight: 700;
+}
+
+.report-evidence {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.report-evidence div {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fbfaf7;
+  border: 1px solid var(--line);
+}
+
+.report-evidence dt {
+  margin-bottom: 4px;
+  color: var(--muted);
+}
+
+.report-evidence dd {
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--navy);
+  word-break: break-word;
+}
+
+.report-visuals {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.report-analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.report-analysis-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 4px solid var(--teal);
+}
+
+.report-analysis-priority {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(122, 155, 158, 0.15);
+  color: var(--navy);
+  border: 1px solid rgba(122, 155, 158, 0.35);
+  font-weight: 700;
+}
+
+.report-mini-copy {
+  margin: 0;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.report-meta-list {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.report-meta-list dt {
+  margin-bottom: 4px;
+  color: var(--muted);
+}
+
+.report-meta-list dd {
+  margin: 0;
+}
+
+.report-meta-foot {
+  margin-top: 10px;
+  color: var(--muted);
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.report-page .card {
+  box-shadow: 0 10px 30px rgba(27, 58, 82, 0.06);
+}
+
 @media (max-width: 900px) {
   .kpi-grid,
-  .hero {
+  .hero,
+  .eda-grid,
+  .report-hero,
+  .report-two-col,
+  .report-figure-grid,
+  .report-storyboard,
+  .report-finding-grid,
+  .report-analysis-grid,
+  .report-evidence,
+  .report-mini-grid,
+  .report-kpi-grid {
     grid-template-columns: 1fr;
   }
 
   .page-shell {
     padding: 14px;
+  }
+
+  .report-hero {
+    padding: 20px;
+  }
+
+  .report-finding-head {
+    flex-direction: column;
   }
 }

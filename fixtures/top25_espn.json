@@ -1,7 +1,202 @@
 [
-  {"season": 2026, "run_date": "2026-02-17", "poll_source": "ESPN/USA Softball", "rank": 1, "team_id": "tennessee", "team_name": "Tennessee"},
-  {"season": 2026, "run_date": "2026-02-17", "poll_source": "ESPN/USA Softball", "rank": 2, "team_id": "oklahoma", "team_name": "Oklahoma"},
-  {"season": 2026, "run_date": "2026-02-17", "poll_source": "ESPN/USA Softball", "rank": 3, "team_id": "ucla", "team_name": "UCLA"},
-  {"season": 2026, "run_date": "2026-02-17", "poll_source": "ESPN/USA Softball", "rank": 4, "team_id": "florida-state", "team_name": "Florida State"},
-  {"season": 2026, "run_date": "2026-02-17", "poll_source": "ESPN/USA Softball", "rank": 5, "team_id": "texas", "team_name": "Texas"}
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 1,
+    "team_id": "oklahoma",
+    "team_name": "Oklahoma"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 2,
+    "team_id": "alabama",
+    "team_name": "Alabama"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 3,
+    "team_id": "texas-tech",
+    "team_name": "Texas Tech"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 4,
+    "team_id": "nebraska",
+    "team_name": "Nebraska"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 5,
+    "team_id": "texas",
+    "team_name": "Texas"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 6,
+    "team_id": "arkansas",
+    "team_name": "Arkansas"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 7,
+    "team_id": "florida",
+    "team_name": "Florida"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 8,
+    "team_id": "ucla",
+    "team_name": "UCLA"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 9,
+    "team_id": "tennessee",
+    "team_name": "Tennessee"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 10,
+    "team_id": "virginia-tech",
+    "team_name": "Virginia Tech"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 11,
+    "team_id": "texas-a-m",
+    "team_name": "Texas A&M"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 12,
+    "team_id": "florida-state",
+    "team_name": "Florida State"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 13,
+    "team_id": "georgia",
+    "team_name": "Georgia"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 14,
+    "team_id": "mississippi-state",
+    "team_name": "Mississippi State"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 14,
+    "team_id": "duke",
+    "team_name": "Duke"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 16,
+    "team_id": "arizona",
+    "team_name": "Arizona"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 17,
+    "team_id": "lsu",
+    "team_name": "LSU"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 18,
+    "team_id": "oregon",
+    "team_name": "Oregon"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 19,
+    "team_id": "stanford",
+    "team_name": "Stanford"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 20,
+    "team_id": "washington",
+    "team_name": "Washington"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 21,
+    "team_id": "oklahoma-state",
+    "team_name": "Oklahoma State"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 22,
+    "team_id": "ucf",
+    "team_name": "UCF"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 23,
+    "team_id": "virginia",
+    "team_name": "Virginia"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 24,
+    "team_id": "grand-canyon",
+    "team_name": "Grand Canyon"
+  },
+  {
+    "season": 2026,
+    "run_date": "2026-04-15",
+    "poll_source": "ESPN/USA Softball",
+    "rank": 25,
+    "team_id": "south-carolina",
+    "team_name": "South Carolina"
+  }
 ]

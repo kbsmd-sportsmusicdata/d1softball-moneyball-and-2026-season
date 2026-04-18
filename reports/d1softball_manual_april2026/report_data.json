@@ -1,0 +1,373 @@
+{
+  "schema_version": "d1softball_manual_report_v1",
+  "report_id": "d1softball_manual_april2026",
+  "title": "D1 Softball Manual Workbook Report",
+  "subtitle": "April 2026 manual workbook import, translated into a publishable markdown brief.",
+  "intro_note": "This report follows the notebook's editorial structure, but swaps in cleaner team-level angles for findings 02 and 07.",
+  "generated_at_utc": "2026-04-16T13:03:37.183572+00:00",
+  "at_a_glance": [
+    {
+      "label": "Team rows",
+      "value": 79
+    },
+    {
+      "label": "Player rows",
+      "value": 125
+    },
+    {
+      "label": "Batting players with AB > 0",
+      "value": 100
+    },
+    {
+      "label": "Pitching players with IP > 0",
+      "value": 26
+    },
+    {
+      "label": "Teams with innings-qualified pitching",
+      "value": 50
+    },
+    {
+      "label": "Composite vs. RPI correlation",
+      "value": 0.4
+    }
+  ],
+  "executive_summary": "The imported workbook makes one thing clear immediately: the top end is crowded, but not random. Texas Tech owns the composite crown, UCLA and Oklahoma stay right on its heels, and the RPI table tells a different story with Arkansas at No. 1. At the player level, Megan Grant is the loudest bat in the file, while Tennessee's staff gives the cleanest prevention profile among innings-qualified teams.",
+  "key_scoreboard": [
+    {
+      "team": "Texas Tech",
+      "composite": 1.1728,
+      "ops": 1.2357,
+      "era": 1.77,
+      "has_pitching": true,
+      "rpi": 9.0
+    },
+    {
+      "team": "UCLA",
+      "composite": 1.0325,
+      "ops": 1.3112,
+      "era": null,
+      "has_pitching": false,
+      "rpi": 8.0
+    },
+    {
+      "team": "Oklahoma",
+      "composite": 0.8151,
+      "ops": 1.3598,
+      "era": 2.86,
+      "has_pitching": true,
+      "rpi": 7.0
+    },
+    {
+      "team": "North Carolina",
+      "composite": 0.7257,
+      "ops": 1.0923,
+      "era": null,
+      "has_pitching": false,
+      "rpi": 37.0
+    },
+    {
+      "team": "Northern Iowa",
+      "composite": 0.6808,
+      "ops": 1.0854,
+      "era": null,
+      "has_pitching": false,
+      "rpi": null
+    }
+  ],
+  "storyboard": {
+    "arc_title": "A tight top tier with split ranking signals",
+    "audience_tags": [
+      "analyst",
+      "coaching",
+      "fan"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "finding_id": "04",
+        "step_type": "hook",
+        "title": "Top-5 race is primed for fan-facing weekly drama",
+        "narrative": "The top five teams sit within 0.492 composite points, which is tight enough for weekly movement to matter.",
+        "transition": "Start with the story fans feel first: the board is tight enough that weekly movement matters."
+      },
+      {
+        "order": 2,
+        "finding_id": "01",
+        "step_type": "evidence",
+        "title": "Texas Tech leads the all-around team profile",
+        "narrative": "Texas Tech ranks first by composite score, signaling balanced strength across offense, pitching, discipline, and defense.",
+        "transition": "Show why Texas Tech sits at the top of the all-around leaderboard."
+      },
+      {
+        "order": 3,
+        "finding_id": "02",
+        "step_type": "contrast",
+        "title": "Arkansas owns the RPI crown, but Texas Tech owns the composite crown",
+        "narrative": "RPI and the composite model are only moderately aligned here, with correlation at 0.40; Arkansas is No. 1 in RPI, but Texas Tech is No. 1 in composite.",
+        "transition": "Introduce the main contradiction: RPI crowns one team, the composite crowns another."
+      },
+      {
+        "order": 4,
+        "finding_id": "06",
+        "step_type": "action",
+        "title": "Megan Grant leads the long-ball race",
+        "narrative": "Megan Grant is the loudest individual bat in the workbook, pairing a huge OPS with a home run total that sits far above the next tier.",
+        "transition": "Move from team shape to star power with the loudest bat in the workbook."
+      },
+      {
+        "order": 5,
+        "finding_id": "03",
+        "step_type": "implication",
+        "title": "Texas Tech profiles as a coaching-efficiency standout",
+        "narrative": "Texas Tech combines elite discipline with strong run-prevention markers, a profile that usually signals repeatable coaching value rather than one-off luck.",
+        "transition": "Translate the bat into a broader coaching and execution signal."
+      },
+      {
+        "order": 6,
+        "finding_id": "07",
+        "step_type": "support",
+        "title": "Tennessee owns the strongest run-prevention staff",
+        "narrative": "Among innings-qualified staffs, Tennessee sits at the top of both ERA and WHIP, which gives it the cleanest prevention profile in the workbook.",
+        "transition": "Bring in the run-prevention staff that most clearly controls the game."
+      },
+      {
+        "order": 7,
+        "finding_id": "05",
+        "step_type": "support",
+        "title": "Nebraska shows one of the cleanest balanced profiles",
+        "narrative": "Among innings-qualified teams, Nebraska keeps offense and pitching relatively close together, which usually travels better than a one-sided profile.",
+        "transition": "Add the balance note that explains why some teams hold their shape."
+      },
+      {
+        "order": 8,
+        "finding_id": "08",
+        "step_type": "close",
+        "title": "The offensive leaderboard is top-heavy, but not singular",
+        "narrative": "Oklahoma, UCLA, Texas Tech, and Florida form the clearest offensive tier; the next few schools are good, but the gap to the top four is real.",
+        "transition": "Close with the offensive tier that sets the ceiling for the whole board."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "01",
+      "title": "Texas Tech leads the all-around team profile",
+      "insight": "Texas Tech ranks first by composite score, signaling balanced strength across offense, pitching, discipline, and defense.",
+      "evidence": {
+        "team": "Texas Tech",
+        "composite_score": 1.1728,
+        "composite_rank": 1
+      },
+      "visuals": [
+        "Top-10 composite bar chart",
+        "Team-signal map"
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Arkansas owns the RPI crown, but Texas Tech owns the composite crown",
+      "insight": "RPI and the composite model are only moderately aligned here, with correlation at 0.40; Arkansas is No. 1 in RPI, but Texas Tech is No. 1 in composite.",
+      "evidence": {
+        "arkansas_rpi_rank": 1,
+        "arkansas_composite_rank": 22,
+        "texas_tech_rpi_rank": 9,
+        "texas_tech_composite_rank": 1,
+        "rank_correlation": 0.3988
+      },
+      "visuals": [
+        "RPI vs composite scatter",
+        "Rank-difference highlight table"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Texas Tech profiles as a coaching-efficiency standout",
+      "insight": "Texas Tech combines elite discipline with strong run-prevention markers, a profile that usually signals repeatable coaching value rather than one-off luck.",
+      "evidence": {
+        "discipline_z": 2.473,
+        "pitching_z": 0.7245,
+        "k_bb_ratio": 4.7576,
+        "whip": 0.8776
+      },
+      "visuals": [
+        "Offense vs. pitching scatter",
+        "Texas Tech callout card"
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Top-5 race is primed for fan-facing weekly drama",
+      "insight": "The top five teams sit within 0.492 composite points, which is tight enough for weekly movement to matter.",
+      "evidence": {
+        "top5_teams": "Texas Tech, UCLA, Oklahoma, North Carolina, Northern Iowa",
+        "top1_score": 1.1728,
+        "top5_score": 0.6808,
+        "gap": 0.492
+      },
+      "visuals": [
+        "Top-10 composite bars",
+        "Top-5 gap callout"
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Nebraska shows one of the cleanest balanced profiles",
+      "insight": "Among innings-qualified teams, Nebraska keeps offense and pitching relatively close together, which usually travels better than a one-sided profile.",
+      "evidence": {
+        "offense_z": 0.7758,
+        "pitching_z": 0.6201,
+        "balance_gap": 0.1557
+      },
+      "visuals": [
+        "Offense vs. pitching scatter",
+        "Balance-gap mini table"
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Megan Grant leads the long-ball race",
+      "insight": "Megan Grant is the loudest individual bat in the workbook, pairing a huge OPS with a home run total that sits far above the next tier.",
+      "evidence": {
+        "team": "UCLA",
+        "ops": 1.9587,
+        "hr": 29,
+        "ab": 108
+      },
+      "visuals": [
+        "Top player OPS bars",
+        "Home-run leaderboard"
+      ]
+    },
+    {
+      "id": "07",
+      "title": "Tennessee owns the strongest run-prevention staff",
+      "insight": "Among innings-qualified staffs, Tennessee sits at the top of both ERA and WHIP, which gives it the cleanest prevention profile in the workbook.",
+      "evidence": {
+        "era": 1.11,
+        "whip": 0.7642,
+        "k_bb_ratio": 3.7444,
+        "ip": 276.1
+      },
+      "visuals": [
+        "Pitching-staff leaderboard",
+        "Prevention profile card"
+      ]
+    },
+    {
+      "id": "08",
+      "title": "The offensive leaderboard is top-heavy, but not singular",
+      "insight": "Oklahoma, UCLA, Texas Tech, and Florida form the clearest offensive tier; the next few schools are good, but the gap to the top four is real.",
+      "evidence": {
+        "top_4": "Oklahoma, UCLA, Texas Tech, Florida",
+        "top_4_ops": "1.360, 1.311, 1.236, 1.103"
+      },
+      "visuals": [
+        "Top-10 team OPS chart",
+        "Offense-vs-pitching map"
+      ]
+    }
+  ],
+  "deeper_analysis": [
+    {
+      "question": "Which teams overperform expected results once schedule strength is introduced?",
+      "importance": "Separates true strength from context effects and improves ranking stability.",
+      "needed_data": [
+        "team-level game logs",
+        "opponent quality",
+        "home/away"
+      ],
+      "method": "Schedule-adjusted residual modeling",
+      "priority": "high"
+    },
+    {
+      "question": "Which player profiles are most predictive of postseason run production?",
+      "importance": "Identifies transferable offensive traits under stronger pitching.",
+      "needed_data": [
+        "player splits",
+        "high-leverage situations",
+        "postseason samples"
+      ],
+      "method": "Feature importance with holdout seasons",
+      "priority": "high"
+    },
+    {
+      "question": "Where does pitching usage create hidden fatigue or efficiency edges?",
+      "importance": "Supports coaching decisions on rotation, bullpen leverage, and recovery windows.",
+      "needed_data": [
+        "pitching appearances",
+        "days rest",
+        "opponent strength"
+      ],
+      "method": "Usage clustering + rolling trend decomposition",
+      "priority": "medium"
+    },
+    {
+      "question": "Which fan-facing storylines have the highest week-to-week volatility?",
+      "importance": "Improves content planning around credible, high-interest swings.",
+      "needed_data": [
+        "weekly rankings",
+        "individual performance deltas",
+        "team outcomes"
+      ],
+      "method": "Volatility index + change-point detection",
+      "priority": "medium"
+    }
+  ],
+  "figures": [
+    {
+      "filename": "01_top_teams.svg",
+      "title": "Top 10 Teams by Composite Score",
+      "caption": "Texas Tech leads the composite board, with UCLA and Oklahoma close enough to keep the top tier live.",
+      "alt": "Top 10 Teams by Composite Score"
+    },
+    {
+      "filename": "02_rpi_vs_composite.svg",
+      "title": "RPI and Composite Rank Tell Different Top-10 Stories",
+      "caption": "RPI and the composite model only partially agree, which is why Arkansas and Texas Tech split the top-line story.",
+      "alt": "RPI and Composite Rank Tell Different Top-10 Stories"
+    },
+    {
+      "filename": "03_team_signal_map.svg",
+      "title": "Offense vs. Run Prevention",
+      "caption": "The best teams pair a real offense with enough run prevention to keep the run differential alive.",
+      "alt": "Offense vs. Run Prevention"
+    },
+    {
+      "filename": "04_top_players_ops.svg",
+      "title": "Top 10 Players by OPS",
+      "caption": "Megan Grant and Jordan Woolery anchor the player leaderboard, with Katie Stewart and Emily LeGette in the next cluster.",
+      "alt": "Top 10 Players by OPS"
+    },
+    {
+      "filename": "05_top_pitching_staffs.svg",
+      "title": "Tennessee Sets the Run-Prevention Standard",
+      "caption": "Tennessee owns the cleanest prevention profile, while Texas Tech and Alabama stay close enough to matter.",
+      "alt": "Tennessee Sets the Run-Prevention Standard"
+    }
+  ],
+  "data_notes": [
+    "The workbook is partial by design: batting and pitching rows are not fully overlapped, so player-level analysis is better treated as two complementary slices rather than a single joined table.",
+    "Team-level claims are strongest where both batting and pitching coverage exist, especially among the innings-qualified staffs used in the prevention charts.",
+    "The report uses the workbook as a snapshot, not a season-complete game-log feed.",
+    "Player batting and player pitching do not need to overlap for this workbook to be useful."
+  ],
+  "source_artifacts": {
+    "eda_run_dir": "/Users/krystalbeasley/Documents/New project/eda_runs/2026-04-16T074017Z",
+    "report_dir": "/Users/krystalbeasley/Documents/New project/reports/d1softball_manual_april2026",
+    "report_markdown_path": "/Users/krystalbeasley/Documents/New project/reports/d1softball_manual_april2026/report.md",
+    "report_metadata_path": "/Users/krystalbeasley/Documents/New project/reports/d1softball_manual_april2026/report_metadata.json"
+  },
+  "report_metadata": {
+    "teams_path": "/Users/krystalbeasley/Documents/New project/data/processed/2026-04-16/teams.csv",
+    "players_path": "/Users/krystalbeasley/Documents/New project/data/processed/2026-04-16/players.csv",
+    "rpi_path": "/Users/krystalbeasley/Documents/New project/data/raw/2026-02-17/D1Softball_Manual_April2026.xlsx",
+    "eda_run_dir": "/Users/krystalbeasley/Documents/New project/eda_runs/2026-04-16T074017Z",
+    "figure_count": 5
+  },
+  "coverage": {
+    "team_rows": 79,
+    "player_rows": 125,
+    "teams_with_pitching": 50,
+    "composite_vs_rpi_correlation": 0.3988
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "eda_agent_v1",
+  "run_id": "2026-04-15T095703Z",
+  "run_label": "after-data-limit-audit",
+  "generated_at_utc": "2026-04-15T09:57:03.968190+00:00",
+  "source": {
+    "mode": "latest_processed",
+    "teams_path": "data/processed/2026-04-10/teams.csv",
+    "players_path": "data/processed/2026-04-10/players.csv",
+    "teams_rows": 25,
+    "players_rows": 1271
+  },
+  "config": {
+    "min_player_ab": 30,
+    "min_player_ip": 20.0,
+    "max_findings": 8,
+    "llm_enabled": false,
+    "llm_model": "gpt-4o-mini"
+  },
+  "outputs": {
+    "findings_count": 6,
+    "storyboard_steps": 6,
+    "deeper_analysis_count": 4
+  },
+  "warnings": [
+    "player batting production is unavailable in the current player rows: AB=0 for all rows",
+    "pitching workload is sparse in the current player rows: IP>0 for only 1 row(s)"
+  ]
+}

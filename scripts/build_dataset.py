@@ -5,6 +5,7 @@ import csv
 import json
 import sys
 from datetime import datetime
+from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +14,7 @@ if str(ROOT) not in sys.path:
 
 from ingestion.sources.espn_poll import fetch_top25
 from ingestion.sources.espn_stats import fetch_team_player_stats_from_espn
+from ingestion.sources.d1softball import fetch_team_player_stats_from_d1softball
 from ingestion.sources.fallbacks import fetch_fallback_stats
 from ingestion.sources.ncaa import SourceFetchError, fetch_team_player_stats
 from transform.cleaning import clean_player_rows, clean_team_rows
@@ -59,15 +61,68 @@ def main() -> None:
     else:
         # Live mode priority:
         # 1) ESPN team/player ingestion (team totals + full rosters)
-        # 2) NCAA ingestion
+        # 2) D1Softball team-page backfill when ESPN player rows are unusable
+        # 3) NCAA ingestion
         # 3) fixture fallback
-        teams_raw, players_raw, provenance = fetch_team_player_stats_from_espn(
-            top25=top25,
-            run_date=run_date,
-            season=season,
-        )
+        used_d1softball_backfill = False
+        espn_fetch_error: str | None = None
+        try:
+            teams_raw, players_raw, provenance = fetch_team_player_stats_from_espn(
+                top25=top25,
+                run_date=run_date,
+                season=season,
+            )
+        except Exception as exc:
+            espn_fetch_error = str(exc)
+            teams_raw = []
+            players_raw = []
+            provenance = [
+                {
+                    "source": "espn",
+                    "status": "failed",
+                    "reason": espn_fetch_error,
+                }
+            ]
+
+        player_quality = _player_quality_by_team(players_raw)
+        failing_teams = _failing_player_coverage(top25, player_quality, min_hitters=10)
+
+        if espn_fetch_error is not None or len(failing_teams) > 0:
+            d1_teams_raw, d1_players_raw, d1_provenance = fetch_team_player_stats_from_d1softball(
+                top25=top25,
+                run_date=run_date,
+                season=season,
+            )
+            d1_quality = _player_quality_by_team(d1_players_raw)
+            d1_failing_teams = _failing_player_coverage(top25, d1_quality, min_hitters=10)
+            if d1_failing_teams:
+                team_list = ", ".join(
+                    f"{team['team_name']} ({team['ab_gt_0']} hitters with AB>0)"
+                    for team in d1_failing_teams
+                )
+                raise RuntimeError(
+                    "Live player extraction failed quality gate even after D1Softball fallback. "
+                    f"Teams below threshold: {team_list}. Manual player input is required."
+                )
+            teams_raw = d1_teams_raw or teams_raw
+            players_raw = d1_players_raw
+            provenance.append(
+                {
+                    "source": "d1softball",
+                    "status": "fallback",
+                    "reason": (
+                        "ESPN player rows did not meet minimum player coverage threshold"
+                        if espn_fetch_error is None
+                        else f"ESPN live fetch failed: {espn_fetch_error}"
+                    ),
+                    "failing_teams": failing_teams,
+                }
+            )
+            provenance.extend(d1_provenance)
+            used_d1softball_backfill = True
+
         live_espn_teams = [p for p in provenance if p.get("source") == "espn" and p.get("status") == "live"]
-        if len(live_espn_teams) < len(top25):
+        if not used_d1softball_backfill and len(live_espn_teams) < len(top25):
             try:
                 teams_raw, players_raw, provenance = fetch_team_player_stats(
                     top25=top25,
@@ -183,6 +238,48 @@ def _write_csv(path: Path, rows: list[dict]) -> None:
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)
+
+
+def _player_quality_by_team(rows: list[dict]) -> dict[str, int]:
+    counts: dict[str, int] = defaultdict(int)
+    for row in rows:
+        team_id = str(row.get("team_id", "")).strip()
+        if not team_id:
+            continue
+        if _to_float(row.get("ab", 0.0)) > 0.0:
+            counts[team_id] += 1
+    return dict(counts)
+
+
+def _failing_player_coverage(
+    top25: list[dict],
+    player_quality: dict[str, int],
+    min_hitters: int,
+) -> list[dict[str, int | str]]:
+    failures: list[dict[str, int | str]] = []
+    for team in top25:
+        team_id = str(team.get("team_id", "")).strip()
+        team_name = str(team.get("team_name", "")).strip()
+        if player_quality.get(team_id, 0) < min_hitters:
+            failures.append(
+                {
+                    "team_id": team_id,
+                    "team_name": team_name,
+                    "ab_gt_0": player_quality.get(team_id, 0),
+                }
+            )
+    return failures
+
+
+def _to_float(value: object) -> float:
+    if value in (None, ""):
+        return 0.0
+    if isinstance(value, (int, float)):
+        return float(value)
+    try:
+        return float(str(value).replace(",", ""))
+    except Exception:
+        return 0.0
 
 
 if __name__ == "__main__":

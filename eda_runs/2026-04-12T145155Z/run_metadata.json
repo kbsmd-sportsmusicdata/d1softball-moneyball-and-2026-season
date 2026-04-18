@@ -1,0 +1,26 @@
+{
+  "schema_version": "eda_agent_v1",
+  "run_id": "2026-04-12T145155Z",
+  "run_label": "initial-eda-v1",
+  "generated_at_utc": "2026-04-12T14:51:55.863672+00:00",
+  "source": {
+    "mode": "latest_processed",
+    "teams_path": "data/processed/2026-04-10/teams.csv",
+    "players_path": "data/processed/2026-04-10/players.csv",
+    "teams_rows": 25,
+    "players_rows": 1271
+  },
+  "config": {
+    "min_player_ab": 30,
+    "min_player_ip": 20.0,
+    "max_findings": 8,
+    "llm_enabled": false,
+    "llm_model": "gpt-4o-mini"
+  },
+  "outputs": {
+    "findings_count": 6,
+    "storyboard_steps": 6,
+    "deeper_analysis_count": 4
+  },
+  "warnings": []
+}

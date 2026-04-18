@@ -1,0 +1,7 @@
+{
+  "teams_path": "/Users/krystalbeasley/Documents/New project/data/processed/2026-04-16/teams.csv",
+  "players_path": "/Users/krystalbeasley/Documents/New project/data/processed/2026-04-16/players.csv",
+  "rpi_path": "/Users/krystalbeasley/Documents/New project/data/raw/2026-02-17/D1Softball_Manual_April2026.xlsx",
+  "eda_run_dir": "/Users/krystalbeasley/Documents/New project/eda_runs/2026-04-16T074017Z",
+  "figure_count": 5
+}

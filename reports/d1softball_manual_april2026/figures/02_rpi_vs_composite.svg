@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="860" viewBox="0 0 1080 860" role="img" aria-label="D1 Softball report figure">
+<rect width="100%" height="100%" fill="#F5F2EE"/>
+<rect x="0" y="0" width="1080" height="6" rx="0.0" fill="#C88F5A" fill-opacity="1.0"/>
+<rect x="0" y="6" width="1080" height="92" rx="0.0" fill="#1B3A52" fill-opacity="1.0"/>
+<text x="44" y="40" text-anchor="start" font-family="Montserrat, Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F2EE" style="">RPI and Composite Rank Tell Different Top-10 Stories</text>
+<text x="44" y="68" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#D6E3E3" style="">Correlation between the two rank systems: r = 0.40. Arkansas leads RPI; Texas Tech leads composite.</text>
+<text x="40" y="124" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#4F6D7A" style="">Each point is a team. Smaller ranks are better; the 45-degree line marks agreement.</text>
+<rect x="120" y="130" width="880" height="620" rx="10" fill="#FFFDFC" fill-opacity="1.0" stroke="#D8D1C6" stroke-width="1.0"/>
+<line x1="120.0" y1="750" x2="120.0" y2="756" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="120.0" y="774" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">1</text>
+<line x1="114" y1="750.0" x2="120" y2="750.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="108" y="754.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">1</text>
+<line x1="340.0" y1="750" x2="340.0" y2="756" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="340.0" y="774" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">20</text>
+<line x1="114" y1="595.0" x2="120" y2="595.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="108" y="599.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">20</text>
+<line x1="560.0" y1="750" x2="560.0" y2="756" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="560.0" y="774" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">38</text>
+<line x1="114" y1="440.0" x2="120" y2="440.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="108" y="444.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">38</text>
+<line x1="780.0" y1="750" x2="780.0" y2="756" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="780.0" y="774" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">56</text>
+<line x1="114" y1="285.0" x2="120" y2="285.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="108" y="289.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">56</text>
+<line x1="1000.0" y1="750" x2="1000.0" y2="756" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="1000.0" y="774" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">75</text>
+<line x1="114" y1="130.0" x2="120" y2="130.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="108" y="134.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">75</text>
+<line x1="120" y1="130" x2="1000" y2="750" stroke="#7A9B9E" stroke-width="1.4" stroke-opacity="0.85" stroke-dasharray="6,6"/>
+<text x="1018" y="806" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">RPI rank</text>
+<text x="22" y="440.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">Composite rank</text>
+<circle cx="215.13513513513516" cy="750.0" r="6.0" fill="#C88F5A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="203.24324324324323" cy="741.6216216216217" r="6.0" fill="#C88F5A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="191.35135135135135" cy="733.2432432432432" r="6.0" fill="#C88F5A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="548.1081081081081" cy="724.8648648648649" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="322.1621621621622" cy="708.1081081081081" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="155.67567567567568" cy="699.7297297297297" r="6.0" fill="#C88F5A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="845.4054054054054" cy="682.9729729729729" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="167.56756756756758" cy="674.5945945945946" r="6.0" fill="#C88F5A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="310.2702702702703" cy="649.4594594594595" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="286.48648648648646" cy="632.7027027027027" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="250.8108108108108" cy="624.3243243243244" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="869.1891891891892" cy="615.9459459459459" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="500.5405405405406" cy="607.5675675675675" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="143.78378378378378" cy="599.1891891891892" r="6.0" fill="#C88F5A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="714.5945945945946" cy="582.4324324324324" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="120.0" cy="574.0540540540541" r="6.0" fill="#C88F5A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="678.9189189189188" cy="523.7837837837837" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="334.05405405405406" cy="507.02702702702703" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="131.8918918918919" cy="498.64864864864865" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="560.0" cy="481.8918918918919" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="298.3783783783784" cy="465.1351351351351" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="726.4864864864865" cy="448.3783783783784" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="595.6756756756756" cy="423.2432432432433" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="274.5945945945946" cy="414.86486486486484" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="488.64864864864865" cy="406.4864864864865" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="417.2972972972973" cy="398.1081081081081" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="227.02702702702703" cy="389.72972972972974" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="607.5675675675675" cy="381.35135135135135" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="369.7297297297297" cy="372.97297297297297" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="809.7297297297297" cy="364.5945945945946" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="892.972972972973" cy="356.21621621621625" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="833.5135135135135" cy="339.4594594594595" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="643.2432432432432" cy="331.0810810810811" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="179.45945945945945" cy="322.7027027027027" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="238.9189189189189" cy="314.3243243243243" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="464.86486486486484" cy="305.94594594594594" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="512.4324324324325" cy="297.56756756756755" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="1000.0" cy="272.43243243243245" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="405.4054054054054" cy="264.05405405405406" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="357.8378378378378" cy="255.67567567567568" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="988.1081081081081" cy="247.2972972972973" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="262.7027027027027" cy="238.9189189189189" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="857.2972972972973" cy="230.54054054054052" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="381.6216216216216" cy="205.40540540540542" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="476.7567567567568" cy="180.2702702702702" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="797.8378378378378" cy="171.89189189189187" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="655.1351351351351" cy="163.51351351351354" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="762.1621621621622" cy="155.1351351351351" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="750.2702702702703" cy="138.37837837837833" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="441.0810810810811" cy="130.0" r="6.0" fill="#4F6D7A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<text x="225.13513513513516" y="742.0" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Texas Tech</text>
+<text x="213.24324324324323" y="733.6216216216217" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">UCLA</text>
+<text x="201.35135135135135" y="725.2432432432432" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Oklahoma</text>
+<text x="165.67567567567568" y="691.7297297297297" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Alabama</text>
+<text x="177.56756756756758" y="666.5945945945946" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Nebraska</text>
+<text x="153.78378378378378" y="591.1891891891892" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Florida</text>
+<text x="130.0" y="566.0540540540541" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Arkansas</text>
+<text x="120" y="102" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="#4F6D7A" style="">Arkansas is the RPI leader, but Texas Tech and UCLA look stronger in the composite framework.</text>
+</svg>
