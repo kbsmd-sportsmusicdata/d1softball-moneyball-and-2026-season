@@ -1,0 +1,52 @@
+{
+  "arc_title": "Who is built to sustain performance and who can swing a series?",
+  "audience_tags": [
+    "analyst",
+    "coaching",
+    "fan"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "finding_id": "F08",
+      "step_type": "hook",
+      "narrative": "Top-5 race is primed for fan-facing weekly drama: The top of the board is tight enough to produce meaningful weekly movement and marquee matchups.",
+      "transition": "Start with what fans immediately care about."
+    },
+    {
+      "order": 2,
+      "finding_id": "F01",
+      "step_type": "evidence",
+      "narrative": "Texas A&M leads the all-around team profile: Texas A&M ranks first by composite score, signaling balanced strength across offense, pitching, discipline, and defense.",
+      "transition": "Ground the hook in measurable team context."
+    },
+    {
+      "order": 3,
+      "finding_id": "F02",
+      "step_type": "contrast",
+      "narrative": "Oklahoma State shows one of the most balanced profiles: Oklahoma State has near-matching offense and pitching z-scores, which usually translates to stable game-to-game performance.",
+      "transition": "Introduce standout individuals to create contrast."
+    },
+    {
+      "order": 4,
+      "finding_id": "FM1",
+      "step_type": "implication",
+      "narrative": "Elite Talent lens is currently data-limited: This angle is included via fallback contract coverage until richer fields are available.",
+      "transition": "Translate data into strategic implications."
+    },
+    {
+      "order": 5,
+      "finding_id": "F06",
+      "step_type": "action",
+      "narrative": "Stanford profiles as a coaching-efficiency standout: Stanford combines strong discipline and defensive execution, a common marker of repeatable coaching impact.",
+      "transition": "End with a practical watch-list/action cue."
+    },
+    {
+      "order": 6,
+      "finding_id": "F07",
+      "step_type": "support",
+      "narrative": "UCF owns the strongest run-prevention signal: UCF ranks near the top in both ERA and WHIP, suggesting dependable prevention quality.",
+      "transition": "Reinforce with secondary support."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "eda_agent_v1",
+  "run_id": "2026-04-16T074017Z",
+  "run_label": "manual-d1softball-workbook-apr2026",
+  "generated_at_utc": "2026-04-16T07:40:17.553191+00:00",
+  "source": {
+    "mode": "explicit",
+    "teams_path": "data/processed/2026-04-16/teams.csv",
+    "players_path": "data/processed/2026-04-16/players.csv",
+    "teams_rows": 79,
+    "players_rows": 125
+  },
+  "config": {
+    "min_player_ab": 30,
+    "min_player_ip": 20.0,
+    "max_findings": 8,
+    "llm_enabled": false,
+    "llm_model": "gpt-4o-mini"
+  },
+  "outputs": {
+    "findings_count": 8,
+    "storyboard_steps": 8,
+    "deeper_analysis_count": 4
+  },
+  "warnings": []
+}

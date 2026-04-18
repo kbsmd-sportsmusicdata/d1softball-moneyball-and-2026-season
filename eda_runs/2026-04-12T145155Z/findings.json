@@ -1,0 +1,253 @@
+[
+  {
+    "id": "F01",
+    "title": "Texas A&M leads the all-around team profile",
+    "category": "analytical",
+    "insight": "Texas A&M ranks first by composite score, signaling balanced strength across offense, pitching, discipline, and defense.",
+    "evidence": {
+      "team": "Texas A&M",
+      "composite_score": 0.7461,
+      "composite_rank": 1
+    },
+    "confidence": 0.91,
+    "audience_tags": [
+      "analyst",
+      "coaching",
+      "fan"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "bar",
+        "x": "team_name",
+        "y": "composite_score",
+        "segment": "top_10_teams",
+        "why": "Show overall separation among top teams."
+      },
+      {
+        "chart_type": "radar",
+        "x": "component",
+        "y": "z_score",
+        "segment": "Texas A&M",
+        "why": "Show component balance shape for the leader."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "composite_score",
+        "composite_rank"
+      ],
+      "generation": "deterministic"
+    }
+  },
+  {
+    "id": "FM1",
+    "title": "Elite Talent lens is currently data-limited",
+    "category": "elite_talent",
+    "insight": "This angle is included via fallback contract coverage until richer fields are available.",
+    "evidence": {
+      "teams_rows": 25,
+      "players_rows": 1271
+    },
+    "confidence": 0.52,
+    "audience_tags": [
+      "analyst"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "table",
+        "x": "column",
+        "y": "missing_pct",
+        "segment": "dataset_profile",
+        "why": "Show data gaps behind this lens."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "row_counts"
+      ],
+      "generation": "deterministic_fallback"
+    }
+  },
+  {
+    "id": "F06",
+    "title": "Stanford profiles as a coaching-efficiency standout",
+    "category": "coaching",
+    "insight": "Stanford combines strong discipline and defensive execution, a common marker of repeatable coaching impact.",
+    "evidence": {
+      "team": "Stanford",
+      "discipline_z": 2.4028,
+      "defense_z": 0.0,
+      "coaching_signal": 2.4028
+    },
+    "confidence": 0.8,
+    "audience_tags": [
+      "coaching",
+      "analyst"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "scatter",
+        "x": "discipline_z",
+        "y": "defense_z",
+        "segment": "all_teams",
+        "why": "Show which teams pair clean ABs with clean defense."
+      },
+      {
+        "chart_type": "bar",
+        "x": "team_name",
+        "y": "coaching_signal",
+        "segment": "top_10_teams",
+        "why": "Rank combined discipline/defense signal."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "discipline_z",
+        "defense_z"
+      ],
+      "generation": "deterministic"
+    }
+  },
+  {
+    "id": "F08",
+    "title": "Top-5 race is primed for fan-facing weekly drama",
+    "category": "fan_first",
+    "insight": "The top of the board is tight enough to produce meaningful weekly movement and marquee matchups.",
+    "evidence": {
+      "top_5": [
+        {
+          "team_name": "Texas A&M",
+          "composite_rank": 1,
+          "composite_score": 0.7461
+        },
+        {
+          "team_name": "Florida State",
+          "composite_rank": 2,
+          "composite_score": 0.6932
+        },
+        {
+          "team_name": "Alabama",
+          "composite_rank": 3,
+          "composite_score": 0.6164
+        },
+        {
+          "team_name": "Virginia Tech",
+          "composite_rank": 4,
+          "composite_score": 0.5943
+        },
+        {
+          "team_name": "South Carolina",
+          "composite_rank": 5,
+          "composite_score": 0.5288
+        }
+      ]
+    },
+    "confidence": 0.77,
+    "audience_tags": [
+      "fan",
+      "analyst"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "line",
+        "x": "week_or_run_date",
+        "y": "composite_rank",
+        "segment": "top_5_teams",
+        "why": "Track volatility over updates."
+      },
+      {
+        "chart_type": "bar",
+        "x": "team_name",
+        "y": "composite_score",
+        "segment": "top_5_teams",
+        "why": "Show current race separation."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "composite_rank",
+        "composite_score"
+      ],
+      "generation": "deterministic"
+    }
+  },
+  {
+    "id": "F02",
+    "title": "Oklahoma State shows one of the most balanced profiles",
+    "category": "analytical",
+    "insight": "Oklahoma State has near-matching offense and pitching z-scores, which usually translates to stable game-to-game performance.",
+    "evidence": {
+      "team": "Oklahoma State",
+      "offense_z": 0.2343,
+      "pitching_z": 0.283,
+      "balance_gap": 0.048699999999999966
+    },
+    "confidence": 0.84,
+    "audience_tags": [
+      "analyst",
+      "coaching"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "scatter",
+        "x": "offense_z",
+        "y": "pitching_z",
+        "segment": "all_teams",
+        "why": "Identify balanced teams near the diagonal."
+      },
+      {
+        "chart_type": "dumbbell",
+        "x": "team_name",
+        "y": "offense_vs_pitching",
+        "segment": "top_25_teams",
+        "why": "Highlight internal gap between unit strengths."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "offense_z",
+        "pitching_z"
+      ],
+      "generation": "deterministic"
+    }
+  },
+  {
+    "id": "F07",
+    "title": "UCF owns the strongest run-prevention signal",
+    "category": "coaching",
+    "insight": "UCF ranks near the top in both ERA and WHIP, suggesting dependable prevention quality.",
+    "evidence": {
+      "team": "UCF",
+      "era": 0.0,
+      "whip": 0.0
+    },
+    "confidence": 0.85,
+    "audience_tags": [
+      "coaching",
+      "fan"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "scatter",
+        "x": "whip",
+        "y": "era",
+        "segment": "all_teams",
+        "why": "Locate true run-prevention outliers."
+      },
+      {
+        "chart_type": "bar",
+        "x": "team_name",
+        "y": "runs_allowed_proxy",
+        "segment": "top_10_teams",
+        "why": "Translate prevention edge into fan-facing ranking."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "era",
+        "whip"
+      ],
+      "generation": "deterministic"
+    }
+  }
+]

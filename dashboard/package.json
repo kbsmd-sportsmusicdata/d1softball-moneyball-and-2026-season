@@ -3,10 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "prebuild": "python3 ../scripts/sync_manual_report_bundle.py",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync-report": "python3 ../scripts/sync_manual_report_bundle.py"
   },
   "dependencies": {
     "next": "14.2.18",

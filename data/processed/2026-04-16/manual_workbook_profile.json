@@ -1,0 +1,19 @@
+{
+  "schema_version": "manual_workbook_v1",
+  "workbook_path": "/Users/krystalbeasley/Documents/New project/data/raw/2026-02-17/D1Softball_Manual_April2026.xlsx",
+  "run_date": "2026-04-16",
+  "season": 2026,
+  "sheets": {
+    "team_batting": 50,
+    "team_pitching": 50,
+    "player_batting": 100,
+    "player_pitching": 26,
+    "rpi_041526": 75
+  },
+  "outputs": {
+    "teams_rows": 79,
+    "players_rows": 125,
+    "teams_path": "/Users/krystalbeasley/Documents/New project/data/processed/2026-04-16/teams.csv",
+    "players_path": "/Users/krystalbeasley/Documents/New project/data/processed/2026-04-16/players.csv"
+  }
+}
