@@ -65,6 +65,11 @@ Dashboard route:
 
 - `dashboard/app/report/page.tsx` renders the report as a polished HTML page.
 
+GitHub Actions:
+
+- `build-report-bundle` runs the same workflow in GitHub with a `handoff_mode` input (`none`, `related`, or `full`).
+- `deploy-dashboard` now refreshes Pages when the report bundle changes under `reports/d1softball_manual_april2026/`.
+
 ## EDA Analyst Agent v1
 
 Run notebook-style EDA on the latest processed team/player datasets:

@@ -1,0 +1,72 @@
+name: build-report-bundle
+
+on:
+  workflow_dispatch:
+    inputs:
+      handoff_mode:
+        description: "Generate a handoff bundle after building the report"
+        required: true
+        default: "none"
+        type: choice
+        options:
+          - none
+          - related
+          - full
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-report-bundle
+  cancel-in-progress: false
+
+jobs:
+  build_report:
+    runs-on: ubuntu-latest
+    env:
+      REPORT_HANDOFF_MODE: ${{ inputs.handoff_mode }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build report bundle
+        run: python3 -B scripts/report_workflow.py
+
+      - name: Summarize outputs
+        if: always()
+        run: |
+          {
+            echo "## Manual report bundle"
+            echo ""
+            echo "- Report bundle: \`reports/d1softball_manual_april2026\`"
+            echo "- Dashboard public bundle: \`dashboard/public/reports/d1softball_manual_april2026\`"
+            echo "- Handoff mode: \`${REPORT_HANDOFF_MODE}\`"
+            echo ""
+            echo "### Generated artifacts"
+            echo ""
+            find reports/d1softball_manual_april2026 -maxdepth 2 -type f | sort | sed 's/^/- `/; s/$/`/'
+            if [ "${REPORT_HANDOFF_MODE}" != "none" ] && [ -d handoffs/d1softball_manual_april2026 ]; then
+              echo ""
+              echo "### Handoff bundles"
+              find handoffs/d1softball_manual_april2026 -maxdepth 2 -type f | sort | sed 's/^/- `/; s/$/`/'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-report-bundle-${{ inputs.handoff_mode }}
+          path: |
+            reports/d1softball_manual_april2026
+            dashboard/public/reports/d1softball_manual_april2026
+            handoffs/d1softball_manual_april2026
+          if-no-files-found: warn
+
