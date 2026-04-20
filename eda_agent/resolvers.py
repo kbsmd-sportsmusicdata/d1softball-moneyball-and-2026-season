@@ -82,6 +82,7 @@ def _resolve_manifest_bundle(manifest_path: Path, config: EDARunConfig) -> Datas
         dataset_version=payload.get("dataset_version"),
         profile_name=profile_name,
         resolution_mode="manifest",
+        manifest_path=manifest_path,
         extra_files=extra_files,
     )
 
@@ -100,6 +101,7 @@ def resolve_bundle(config: EDARunConfig) -> DatasetBundle:
             dataset_version=None,
             profile_name=profile_name,
             resolution_mode="explicit",
+            manifest_path=None,
         )
 
     if config.teams_path or config.players_path:
@@ -134,4 +136,5 @@ def resolve_bundle(config: EDARunConfig) -> DatasetBundle:
         dataset_version=latest_folder.name,
         profile_name=profile_name,
         resolution_mode="latest_processed",
+        manifest_path=None,
     )

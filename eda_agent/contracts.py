@@ -14,6 +14,7 @@ class DatasetBundle:
     dataset_version: str | None = None
     profile_name: str = "auto"
     resolution_mode: str = "explicit"
+    manifest_path: Path | None = None
     games_path: Path | None = None
     box_scores_path: Path | None = None
     extra_files: dict[str, Path] = field(default_factory=dict)

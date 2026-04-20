@@ -560,6 +560,7 @@ def run_agent(config: EDARunConfig) -> dict[str, Any]:
             "dataset_label": bundle.dataset_label,
             "dataset_version": bundle.dataset_version,
             "source_root": str(bundle.source_root),
+            "manifest_path": str(bundle.manifest_path) if bundle.manifest_path is not None else None,
             "teams_path": str(bundle.teams_path),
             "players_path": str(bundle.players_path),
             "teams_rows": int(len(teams)),
@@ -609,6 +610,9 @@ def run_agent(config: EDARunConfig) -> dict[str, Any]:
         "generated_at_utc": generated_at.isoformat(),
         "profile_name": profile.name,
         "dataset_label": bundle.dataset_label,
+        "resolution_mode": bundle.resolution_mode,
+        "source_root": str(bundle.source_root),
+        "manifest_path": str(bundle.manifest_path) if bundle.manifest_path is not None else None,
     }
     config.output_root.mkdir(parents=True, exist_ok=True)
     write_json(config.output_root / "latest.json", latest_payload)

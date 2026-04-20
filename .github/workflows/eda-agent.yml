@@ -130,6 +130,28 @@ jobs:
               echo '```json'
               cat eda_runs/latest.json
               echo '```'
+              python3 - <<'PY'
+import json
+from pathlib import Path
+
+latest = json.loads(Path("eda_runs/latest.json").read_text())
+run_path = Path(latest["run_path"])
+metadata_path = run_path / "run_metadata.json"
+if metadata_path.exists():
+    metadata = json.loads(metadata_path.read_text())
+    source = metadata.get("source", {})
+else:
+    metadata = {}
+    source = {}
+
+print("### Resolved bundle")
+print("")
+print(f"- Resolution mode: `{source.get('mode') or latest.get('resolution_mode') or 'unknown'}`")
+print(f"- Dataset label: `{source.get('dataset_label') or latest.get('dataset_label') or 'unknown'}`")
+print(f"- Source root: `{source.get('source_root') or latest.get('source_root') or 'unknown'}`")
+manifest_path = source.get("manifest_path") or latest.get("manifest_path")
+print(f"- Manifest path used: `{manifest_path}`" if manifest_path else "- Manifest path used: `none`")
+PY
             else
               echo "No latest EDA pointer found."
             fi

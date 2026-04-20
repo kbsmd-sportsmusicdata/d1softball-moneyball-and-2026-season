@@ -50,8 +50,10 @@ def test_full_output_contract(tmp_path: Path, monkeypatch):
     assert metadata["schema_version"] == "eda_agent_v2"
     assert metadata["config"]["profile_name"] == "softball"
     assert isinstance(metadata["config"]["qualification_rules"], list)
+    assert metadata["source"]["manifest_path"] is None
 
     latest = json.loads((tmp_path / "eda_runs" / "latest.json").read_text())
     assert latest["run_id"] == result["run_id"]
+    assert latest["manifest_path"] is None
     notebook = nbformat.read(run_dir / "run_log.ipynb", as_version=4)
     assert len(notebook.cells) >= 8
