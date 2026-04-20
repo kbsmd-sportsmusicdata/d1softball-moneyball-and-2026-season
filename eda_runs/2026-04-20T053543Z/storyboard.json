@@ -1,0 +1,66 @@
+{
+  "arc_title": "Who is built to sustain performance and who can swing a series?",
+  "audience_tags": [
+    "analyst",
+    "coaching",
+    "fan"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "finding_id": "F08",
+      "step_type": "hook",
+      "narrative": "Top-5 race is primed for fan-facing weekly drama: The top of the board is tight enough to produce meaningful weekly movement and marquee matchups.",
+      "transition": "Start with what the audience immediately cares about."
+    },
+    {
+      "order": 2,
+      "finding_id": "F01",
+      "step_type": "evidence",
+      "narrative": "Texas Tech leads the all-around profile: Texas Tech ranks first by composite score, signaling balanced strength across offense, pitching, discipline, and defense.",
+      "transition": "Ground the hook in measurable context."
+    },
+    {
+      "order": 3,
+      "finding_id": "F02",
+      "step_type": "contrast",
+      "narrative": "Alabama A&M shows one of the most balanced profiles: Alabama A&M has near-matching offense and pitching z-scores, which usually translates to stable game-to-game performance.",
+      "transition": "Introduce standout individuals to create contrast."
+    },
+    {
+      "order": 4,
+      "finding_id": "F03",
+      "step_type": "implication",
+      "narrative": "Megan Grant is the top OPS impact bat: Megan Grant currently sets the pace in OPS among qualified hitters, indicating elite on-base plus power production.",
+      "transition": "Translate data into strategic implications."
+    },
+    {
+      "order": 5,
+      "finding_id": "F04",
+      "step_type": "action",
+      "narrative": "Megan Grant leads the long-ball race: Megan Grant leads qualified hitters in home runs, creating game-changing swing outcomes.",
+      "transition": "End with a practical watch-list or action cue."
+    },
+    {
+      "order": 6,
+      "finding_id": "F05",
+      "step_type": "support",
+      "narrative": "Maya Johnson is the top bat-missing arm: On a workload-adjusted basis, Maya Johnson leads qualified pitchers in strikeouts per 7 innings.",
+      "transition": "Reinforce with secondary support."
+    },
+    {
+      "order": 7,
+      "finding_id": "F06",
+      "step_type": "support",
+      "narrative": "Texas Tech profiles as a coaching-efficiency standout: Texas Tech combines strong discipline and defensive execution, a common marker of repeatable coaching impact.",
+      "transition": "Add context for continuity."
+    },
+    {
+      "order": 8,
+      "finding_id": "F07",
+      "step_type": "close",
+      "narrative": "Kansas owns the strongest run-prevention signal: Kansas ranks near the top in both ERA and WHIP, suggesting dependable prevention quality.",
+      "transition": "Close with a forward-looking angle."
+    }
+  ]
+}

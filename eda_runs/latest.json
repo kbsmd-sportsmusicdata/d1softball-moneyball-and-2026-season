@@ -1,6 +1,8 @@
 {
-  "schema_version": "eda_agent_v1",
-  "run_id": "2026-04-16T074017Z",
-  "run_path": "eda_runs/2026-04-16T074017Z",
-  "generated_at_utc": "2026-04-16T07:40:17.553191+00:00"
+  "schema_version": "eda_agent_v2",
+  "run_id": "2026-04-20T053543Z",
+  "run_path": "eda_runs/2026-04-20T053543Z",
+  "generated_at_utc": "2026-04-20T05:35:43.690125+00:00",
+  "profile_name": "softball",
+  "dataset_label": "2026-04-16"
 }
