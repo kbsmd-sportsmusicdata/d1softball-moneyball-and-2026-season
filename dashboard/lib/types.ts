@@ -144,7 +144,9 @@ export type ManualReport = {
     report_dir: string;
     report_markdown_path: string;
     report_metadata_path: string;
+    report_notebook_path: string;
     public_bundle_dir: string;
+    public_notebook_path: string;
     public_report_markdown_path: string;
     public_report_metadata_path: string;
     public_figures_dir: string;
@@ -171,17 +173,21 @@ export type EDARunMetadata = {
   generated_at_utc: string;
   source: {
     mode: string;
+    profile_name: string;
+    dataset_label: string;
+    dataset_version: string | null;
+    source_root: string;
     teams_path: string;
     players_path: string;
     teams_rows: number;
     players_rows: number;
   };
   config: {
-    min_player_ab: number;
-    min_player_ip: number;
+    profile_name: string;
     max_findings: number;
     llm_enabled: boolean;
     llm_model: string;
+    qualification_rules: Array<Record<string, unknown>>;
   };
   outputs: {
     findings_count: number;

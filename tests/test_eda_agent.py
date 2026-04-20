@@ -5,8 +5,8 @@ import nbformat
 import pandas as pd
 
 from scripts.eda_analyst_agent import (
-    EDARunConfig,
     DatasetResolver,
+    EDARunConfig,
     REQUIRED_FINDING_CATEGORIES,
     _build_findings,
     _build_storyboard,
@@ -115,13 +115,7 @@ def test_resolver_selects_latest_processed_folder(monkeypatch, tmp_path: Path):
 
 
 def test_findings_contract_category_and_visual_coverage():
-    findings = _build_findings(
-        teams=_sample_teams(),
-        players=_sample_players(),
-        min_player_ab=30,
-        min_player_ip=20.0,
-        max_findings=8,
-    )
+    findings = _build_findings(_sample_teams(), _sample_players(), min_player_ab=30, min_player_ip=20.0, max_findings=8)
     assert 5 <= len(findings) <= 10
 
     categories = {f.category for f in findings}
@@ -132,13 +126,7 @@ def test_findings_contract_category_and_visual_coverage():
 
 
 def test_storyboard_links_findings_with_valid_step_count():
-    findings = _build_findings(
-        teams=_sample_teams(),
-        players=_sample_players(),
-        min_player_ab=30,
-        min_player_ip=20.0,
-        max_findings=8,
-    )
+    findings = _build_findings(_sample_teams(), _sample_players(), min_player_ab=30, min_player_ip=20.0, max_findings=8)
     storyboard = _build_storyboard(findings)
     assert 4 <= len(storyboard["steps"]) <= 8
     valid_ids = {f.id for f in findings}
@@ -148,13 +136,7 @@ def test_storyboard_links_findings_with_valid_step_count():
 
 def test_llm_polish_falls_back_when_key_missing(monkeypatch):
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
-    findings = _build_findings(
-        teams=_sample_teams(),
-        players=_sample_players(),
-        min_player_ab=30,
-        min_player_ip=20.0,
-        max_findings=8,
-    )
+    findings = _build_findings(_sample_teams(), _sample_players(), min_player_ab=30, min_player_ip=20.0, max_findings=8)
     polished, err = _polish_with_llm(findings, model="gpt-4o-mini")
     assert polished
     assert err == "OPENAI_API_KEY not set"
@@ -167,9 +149,6 @@ def test_run_agent_emits_full_artifact_set(tmp_path: Path):
         players_path=Path("data/processed/2026-04-10/players.csv"),
         run_label="test-run",
         output_root=output_root,
-        min_player_ab=30,
-        min_player_ip=20.0,
-        max_findings=8,
         llm_enabled=False,
         llm_model="gpt-4o-mini",
     )
@@ -190,10 +169,12 @@ def test_run_agent_emits_full_artifact_set(tmp_path: Path):
         assert (run_dir / filename).exists()
 
     metadata = json.loads((run_dir / "run_metadata.json").read_text())
-    assert metadata["schema_version"] == "eda_agent_v1"
+    assert metadata["schema_version"] == "eda_agent_v2"
     assert metadata["outputs"]["findings_count"] >= 5
     assert 4 <= metadata["outputs"]["storyboard_steps"] <= 8
     assert any("AB=0" in warning for warning in metadata["warnings"])
+    assert metadata["config"]["profile_name"] in {"softball", "generic"}
+    assert isinstance(metadata["config"]["qualification_rules"], list)
 
     profile = json.loads((run_dir / "dataset_profile.json").read_text())
     assert profile["players"]["nonzero_counts"]["ab"] == 0

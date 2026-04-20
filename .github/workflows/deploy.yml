@@ -6,6 +6,7 @@ on:
     paths:
       - "dashboard/**"
       - "data/public/**"
+      - "eda_runs/**"
       - "reports/d1softball_manual_april2026/**"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:

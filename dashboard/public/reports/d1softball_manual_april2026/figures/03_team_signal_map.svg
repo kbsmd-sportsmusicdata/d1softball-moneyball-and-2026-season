@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-label="D1 Softball report figure">
+<rect width="100%" height="100%" fill="#F5F2EE"/>
+<rect x="0" y="0" width="1120" height="6" rx="0.0" fill="#C88F5A" fill-opacity="1.0"/>
+<rect x="0" y="6" width="1120" height="92" rx="0.0" fill="#1B3A52" fill-opacity="1.0"/>
+<text x="44" y="40" text-anchor="start" font-family="Montserrat, Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F2EE" style="">Offense vs. Run Prevention</text>
+<text x="44" y="68" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#D6E3E3" style="">Texas Tech, UCLA, and Oklahoma all live in the rare zone where the bat is loud and the staff still controls games.</text>
+<text x="40" y="124" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#4F6D7A" style="">Points are color-weighted by composite score. Higher OPS and lower ERA push a team toward the upper-right corner.</text>
+<rect x="110" y="130" width="920" height="520" rx="10" fill="#FFFDFC" fill-opacity="1.0" stroke="#D8D1C6" stroke-width="1.0"/>
+<line x1="110.0" y1="650" x2="110.0" y2="656" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="110.0" y="674" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">0.00</text>
+<line x1="340.0" y1="650" x2="340.0" y2="656" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="340.0" y="674" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">0.35</text>
+<line x1="570.0" y1="650" x2="570.0" y2="656" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="570.0" y="674" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">0.70</text>
+<line x1="800.0" y1="650" x2="800.0" y2="656" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="800.0" y="674" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">1.05</text>
+<line x1="1030.0" y1="650" x2="1030.0" y2="656" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="1030.0" y="674" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">1.40</text>
+<line x1="104" y1="650.0" x2="110" y2="650.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="98" y="654.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">1.00</text>
+<line x1="104" y1="520.0" x2="110" y2="520.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="98" y="524.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">1.66</text>
+<line x1="104" y1="390.00000000000006" x2="110" y2="390.00000000000006" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="98" y="394.00000000000006" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">2.32</text>
+<line x1="104" y1="260.0" x2="110" y2="260.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="98" y="264.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">2.99</text>
+<line x1="104" y1="130.0" x2="110" y2="130.0" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="98" y="134.0" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">3.65</text>
+<text x="570.0" y="724" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">Team OPS</text>
+<text x="26" y="390.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">Team ERA</text>
+<circle cx="921.6870413553107" cy="498.7893188504187" r="9.0" fill="#C88F5A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="1003.2038834951456" cy="285.0154635287019" r="8.490262207866236" fill="#BB9166" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="793.9926488332807" cy="516.4403711246889" r="8.247292418772563" fill="#B4926B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="760.6239495528328" cy="445.8361620276081" r="8.15694470834125" fill="#B2926D" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="834.7839131111514" cy="371.3094968695784" r="8.052774083222497" fill="#AF936F" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="821.843689177592" cy="394.844233235272" r="8.008597757932737" fill="#AE9370" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="825.5221284683498" cy="339.9298483819869" r="7.916682500475014" fill="#AC9373" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="820.1358423640256" cy="318.3563400467678" r="7.897871936158085" fill="#AB9373" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="768.4406330456935" cy="288.93791958965085" r="7.887896636899107" fill="#AB9373" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="800.2985447602946" cy="206.56634230972327" r="7.816787003610108" fill="#A99475" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="818.6907412140849" cy="235.98476276684022" r="7.7138989169675085" fill="#A79477" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="720.9493543453707" cy="206.56634230972327" r="7.665447463423903" fill="#A59478" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="692.0473313465574" cy="545.8587915818059" r="7.633954018620559" fill="#A49479" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="757.6023744211385" cy="275.2093233763295" r="7.631531445943379" fill="#A49479" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="798.8534436103539" cy="224.21739458399344" r="7.525080752422573" fill="#A2957B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="810.2828799780666" cy="186.9540620049786" r="7.502992589777693" fill="#A1957C" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="754.2523672099124" cy="330.1237082296146" r="7.466796503895117" fill="#A0957D" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="733.9552646948366" cy="292.8603756505998" r="7.434163024890747" fill="#9F957D" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="739.8013557105057" cy="196.76020215735088" r="7.244347330419913" fill="#9A9682" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="706.1699107664319" cy="208.52757034019766" r="7.192903287098613" fill="#999683" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="691.324780771587" cy="224.21739458399344" r="7.185350560516816" fill="#999683" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="449.758618088557" r="6.869276078282349" fill="#91988A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="628.2303688617334" r="6.849325479764393" fill="#90988B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="463.4872143018783" r="6.82182215466464" fill="#8F988B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="465.4484423323528" r="6.727911837355121" fill="#8D988E" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="347.77476050388475" r="6.470121603648109" fill="#869993" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="339.9298483819869" r="6.321774653239597" fill="#829A97" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="237.94599079731466" r="6.291991259737792" fill="#829A97" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="375.2319529305273" r="6.288286148584458" fill="#819A97" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="285.0154635287019" r="6.277740832224967" fill="#819A98" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="216.37248246209555" r="6.25380011400342" fill="#819A98" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="339.9298483819869" r="6.2461048831464945" fill="#809A98" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="316.3951120162933" r="6.245392361770853" fill="#809A98" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="241.8684468582636" r="6.190670720121604" fill="#7F9A9A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="194.7989741268765" r="6.190385711571347" fill="#7F9A9A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="234.02353473636572" r="6.164592437773133" fill="#7E9A9A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="241.8684468582636" r="6.163309899296979" fill="#7E9A9A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="302.66651580297207" r="6.1604598137944135" fill="#7E9A9A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="310.51142792486996" r="6.156754702641079" fill="#7E9A9A" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="288.93791958965085" r="6.153762112863386" fill="#7E9A9B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="277.170551406804" r="6.142076762302869" fill="#7E9A9B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="218.33371049257" r="6.142076762302869" fill="#7E9A9B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="275.2093233763295" r="6.140794223826715" fill="#7E9A9B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="212.4500264011466" r="6.120558616758503" fill="#7D9B9B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="220.2949385230445" r="6.110298308949268" fill="#7D9B9B" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="220.2949385230445" r="6.105453163594908" fill="#7D9B9C" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="210.4887983706721" r="6.081227436823105" fill="#7C9B9C" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="202.64388624877432" r="6.021803154094623" fill="#7B9B9E" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="224.21739458399344" r="6.0059851795553865" fill="#7A9B9E" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="110.0" cy="183.03160594402965" r="6.0" fill="#7A9B9E" fill-opacity="0.92" stroke="#FFFFFF" stroke-width="1.2"/>
+<text x="931.6870413553107" y="490.7893188504187" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Texas Tech</text>
+<text x="1013.2038834951456" y="277.0154635287019" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Oklahoma</text>
+<text x="803.9926488332807" y="508.4403711246889" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Alabama</text>
+<text x="770.6239495528328" y="437.8361620276081" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Nebraska</text>
+<text x="120.0" y="620.2303688617334" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Tennessee</text>
+<text x="844.7839131111514" y="363.3094968695784" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Florida</text>
+<text x="831.843689177592" y="386.844233235272" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#1B3A52" style="">Arkansas</text>
+<text x="110" y="102" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="#4F6D7A" style="">Teams in the upper-right are doing the most in one frame: producing runs and preventing them.</text>
+</svg>

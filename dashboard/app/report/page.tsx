@@ -15,7 +15,8 @@ function confidenceLabel(value: number): string {
   return 'Watch';
 }
 
-function provenanceSummary(provenance: EDAFinding['provenance']): string {
+function provenanceSummary(provenance?: EDAFinding['provenance']): string {
+  if (!provenance) return 'Workbook-derived';
   const parts: string[] = [];
   if (typeof provenance.generation === 'string') parts.push(provenance.generation);
   if (Array.isArray(provenance.metrics_used) && provenance.metrics_used.length > 0) {
@@ -23,6 +24,21 @@ function provenanceSummary(provenance: EDAFinding['provenance']): string {
   }
   return parts.length > 0 ? parts.join(' · ') : 'Workbook-derived';
 }
+
+type ReportFindingView = EDAFinding & {
+  category?: string;
+  confidence?: number;
+  provenance?: EDAFinding['provenance'];
+  audience_tags?: string[];
+  visual_suggestions?: Array<{
+    chart_type: string;
+    x: string;
+    y: string;
+    segment: string;
+    why: string;
+  }>;
+  visuals?: string[];
+};
 
 function valueToText(value: unknown): string {
   if (Array.isArray(value)) return value.map((entry) => String(entry)).join(', ');
@@ -108,6 +124,14 @@ export default function ReportPage() {
               <div>
                 <div className="meta">Static bundle</div>
                 <div className="report-mini-value code-inline">{report.source_artifacts.public_bundle_dir}</div>
+              </div>
+              <div>
+                <div className="meta">Notebook HTML</div>
+                <div className="report-mini-value">
+                  <a href={report.source_artifacts.public_notebook_path} className="inline-link">
+                    Open notebook.html
+                  </a>
+                </div>
               </div>
             </div>
           </article>
@@ -200,55 +224,73 @@ export default function ReportPage() {
           <h2>8 publishable insights</h2>
         </div>
         <div className="report-finding-grid">
-          {report.findings.map((finding) => (
-            <article key={finding.id} className="card report-finding-card">
-              <div className="report-finding-head">
-                <div className="report-finding-meta">
-                  <span className="report-pill">{finding.id}</span>
-                  <span className="report-pill">{finding.category}</span>
-                  <span className="report-pill">{confidenceLabel(finding.confidence)} confidence</span>
+          {report.findings.map((finding) => {
+            const reportFinding = finding as ReportFindingView;
+            const category = reportFinding.category ?? 'Workbook';
+            const confidence =
+              typeof reportFinding.confidence === 'number' ? confidenceLabel(reportFinding.confidence) : 'Workbook';
+            const audienceTags = reportFinding.audience_tags ?? ['Workbook-derived'];
+            const visualSuggestions = reportFinding.visual_suggestions ?? [];
+            const visuals = reportFinding.visuals ?? [];
+
+            return (
+              <article key={finding.id} className="card report-finding-card">
+                <div className="report-finding-head">
+                  <div className="report-finding-meta">
+                    <span className="report-pill">{finding.id}</span>
+                    <span className="report-pill">{category}</span>
+                    <span className="report-pill">{confidence} confidence</span>
+                  </div>
+                  <div className="report-provenance">{provenanceSummary(reportFinding.provenance)}</div>
                 </div>
-                <div className="report-provenance">{provenanceSummary(finding.provenance)}</div>
-              </div>
 
-              <h3>{finding.title}</h3>
-              <p className="report-insight">{finding.insight}</p>
+                <h3>{finding.title}</h3>
+                <p className="report-insight">{finding.insight}</p>
 
-              <div className="report-subsection">
-                <div className="meta">Audience</div>
-                <div className="report-tag-row">
-                  {finding.audience_tags.map((tag) => (
-                    <span key={tag} className="report-tag">
-                      {tag}
-                    </span>
-                  ))}
+                <div className="report-subsection">
+                  <div className="meta">Audience</div>
+                  <div className="report-tag-row">
+                    {audienceTags.map((tag) => (
+                      <span key={tag} className="report-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="report-subsection">
-                <div className="meta">Evidence</div>
-                <dl className="report-evidence">
-                  {Object.entries(finding.evidence).map(([key, value]) => (
-                    <div key={key}>
-                      <dt>{key}</dt>
-                      <dd>{valueToText(value)}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
+                <div className="report-subsection">
+                  <div className="meta">Evidence</div>
+                  <dl className="report-evidence">
+                    {Object.entries(finding.evidence).map(([key, value]) => (
+                      <div key={key}>
+                        <dt>{key}</dt>
+                        <dd>{valueToText(value)}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
 
-              <div className="report-subsection">
-                <div className="meta">Visual suggestions</div>
-                <ul className="report-visuals">
-                  {finding.visual_suggestions.map((visual) => (
-                    <li key={`${finding.id}-${visual.chart_type}-${visual.segment}`}>
-                      <strong>{visual.chart_type}</strong> {visual.x} vs {visual.y} ({visual.segment}) — {visual.why}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
+                <div className="report-subsection">
+                  <div className="meta">Visual suggestions</div>
+                  {visualSuggestions.length > 0 ? (
+                    <ul className="report-visuals">
+                      {visualSuggestions.map((visual) => (
+                        <li key={`${finding.id}-${visual.chart_type}-${visual.segment}`}>
+                          <strong>{visual.chart_type}</strong> {visual.x} vs {visual.y} ({visual.segment}) — {visual.why}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <ul className="report-visuals">
+                      {visuals.map((visual) => (
+                        <li key={`${finding.id}-${visual}`}>{visual}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -301,6 +343,10 @@ export default function ReportPage() {
               <div>
                 <dt>Public markdown</dt>
                 <dd className="code-inline">{report.source_artifacts.public_report_markdown_path}</dd>
+              </div>
+              <div>
+                <dt>Public notebook</dt>
+                <dd className="code-inline">{report.source_artifacts.public_notebook_path}</dd>
               </div>
               <div>
                 <dt>Public metadata</dt>

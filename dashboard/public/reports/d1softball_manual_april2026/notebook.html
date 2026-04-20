@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D1 Softball Manual Workbook Report</title>
+<meta name="description" content="April 2026 manual workbook import, translated into a publishable markdown brief." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+    :root {
+      --bg: #f4f0e8;
+      --paper: #fffdf9;
+      --paper-2: #f9f4eb;
+      --ink: #15212c;
+      --muted: #5c6670;
+      --navy: #1b3a52;
+      --navy-2: #224a66;
+      --teal: #7a9b9e;
+      --copper: #c88f5a;
+      --sand: #b8956a;
+      --line: #d8d0c3;
+      --soft: #ede4d7;
+      --shadow: 0 18px 40px rgba(27, 58, 82, 0.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(200, 143, 90, 0.12), transparent 26%),
+        radial-gradient(circle at 88% 4%, rgba(122, 155, 158, 0.12), transparent 20%),
+        linear-gradient(180deg, #f7f3ec 0%, #f4f0e8 100%);
+      font-family: Inter, "Segoe UI", system-ui, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .notebook-shell {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.85fr);
+      gap: 16px;
+      padding: 28px;
+      border-radius: 28px;
+      color: #fff;
+      background:
+        radial-gradient(circle at top right, rgba(239, 179, 33, 0.16), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(122, 155, 158, 0.18), transparent 30%),
+        linear-gradient(135deg, #1b3a52 0%, #224a66 58%, #162838 100%);
+      box-shadow: var(--shadow);
+    }
+    .hero-copy h1 {
+      margin: 8px 0 10px;
+      font-family: Oswald, "Arial Narrow", sans-serif;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.94;
+      letter-spacing: -0.03em;
+    }
+    .eyebrow, .section-label, .meta, .pill, .badge, .story-type, .story-finding, .analysis-priority {
+      font-family: Montserrat, Inter, system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+    }
+    .eyebrow { color: #f5d5a4; font-weight: 700; }
+    .hero-subtitle {
+      max-width: 64ch;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.58;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-note {
+      max-width: 68ch;
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.84);
+    }
+    .badge-row, .chip-row, .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+    }
+    .hero-panel, .card, .info-card, .story-card, .finding-card, .analysis-card, .figure-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+    .hero-panel {
+      padding: 18px;
+      color: var(--ink);
+    }
+    .hero-panel-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .hero-panel-note {
+      font-family: JetBrains Mono, Menlo, Consolas, monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .kpi {
+      padding: 14px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fffdf9 0%, #faf5ee 100%);
+      border: 1px solid #e1d8ca;
+    }
+    .kpi-value {
+      margin-top: 6px;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .hero-callout {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fdfbf7 0%, #f8f1e6 100%);
+      border: 1px solid #eadfce;
+    }
+    .hero-callout strong, .section-title {
+      display: block;
+      font-family: Oswald, "Arial Narrow", sans-serif;
+      letter-spacing: 0.01em;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .hero-callout ul, .bullet-list, .visual-list {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+    .hero-callout li, .bullet-list li, .visual-list li {
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .section-rail {
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 14px 0 18px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.88);
+      border: 1px solid rgba(216, 208, 195, 0.78);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 24px rgba(27, 58, 82, 0.07);
+    }
+    .section-rail a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .section-rail a:hover { background: rgba(200, 143, 90, 0.12); }
+    .section-block {
+      margin-top: 22px;
+      scroll-margin-top: 92px;
+    }
+    .section-title-wrap {
+      margin-bottom: 12px;
+    }
+    .section-title-wrap h2 {
+      margin: 2px 0 0;
+      font-family: Oswald, "Arial Narrow", sans-serif;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .section-subtitle {
+      margin: 8px 0 0;
+      max-width: 76ch;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+    .story-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .card, .info-card, .story-card, .finding-card, .analysis-card, .figure-card {
+      padding: 18px;
+    }
+    .card h3, .finding-card h3, .analysis-card h3, .figure-card h3 {
+      margin: 0 0 8px;
+      font-family: Oswald, "Arial Narrow", sans-serif;
+      font-size: 22px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+    }
+    .card p, .finding-card p, .analysis-card p, .story-card p, .info-card p {
+      margin: 0;
+      line-height: 1.58;
+      color: var(--ink);
+    }
+    .mini-chart {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .mini-chart-row {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 1.5fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+    .mini-chart-label, .mini-chart-value, .watch-label, .watch-value {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .mini-chart-track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(27, 58, 82, 0.08);
+      overflow: hidden;
+    }
+    .mini-chart-track span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--copper), var(--teal));
+    }
+    .split-signal, .watch-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .split-signal-head, .split-signal-row {
+      display: grid;
+      grid-template-columns: 1.2fr auto auto;
+      gap: 8px;
+      align-items: center;
+    }
+    .split-signal-head {
+      font-family: Montserrat, Inter, system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .split-signal-row {
+      padding: 10px 0;
+      border-top: 1px solid var(--soft);
+    }
+    .split-signal-team {
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .rank-pill {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 60px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(27, 58, 82, 0.06);
+      color: var(--navy);
+      font-weight: 800;
+    }
+    .split-signal-foot {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .watch-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid var(--soft);
+    }
+    .storyboard-grid, .finding-grid, .analysis-grid, .figure-grid, .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .story-card {
+      border-left: 4px solid var(--copper);
+    }
+    .story-card-topline, .finding-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .story-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .story-transition {
+      margin-top: 10px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .finding-card {
+      border-top: 4px solid var(--navy);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f4efe8;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .finding-provenance {
+      color: var(--muted);
+      font-family: Montserrat, Inter, system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 10px;
+      line-height: 1.4;
+      text-align: right;
+    }
+    .finding-insight {
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+    .finding-section { margin-top: 12px; }
+    .evidence-grid {
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .evidence-grid div {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #fbf8f3 0%, #f7f1e8 100%);
+      border: 1px solid #e5dbca;
+    }
+    .evidence-grid dt {
+      margin: 0 0 4px;
+      font-family: Montserrat, Inter, system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .evidence-grid dd {
+      margin: 0;
+      font-weight: 800;
+      color: var(--ink);
+      word-break: break-word;
+    }
+    .analysis-priority {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(122, 155, 158, 0.12);
+      color: var(--navy);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .analysis-copy {
+      color: var(--muted);
+    }
+    .figure-grid {
+      align-items: start;
+    }
+    .figure-card img {
+      margin-top: 10px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #fffdf9 0%, #f6f1e8 100%);
+    }
+    .figure-caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .info-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .artifact-list {
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .artifact-list div {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #fbf8f3;
+      border: 1px solid var(--line);
+    }
+    .artifact-list dt {
+      margin: 0 0 4px;
+      font-family: Montserrat, Inter, system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .artifact-list dd {
+      margin: 0;
+      font-family: JetBrains Mono, Menlo, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      word-break: break-word;
+      color: var(--ink);
+    }
+    .artifact-foot {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 12px;
+    }
+    .summary-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .summary-card p { color: var(--ink); }
+    .summary-copy {
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    .summary-note {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fbf8f3 0%, #f7f1e8 100%);
+      border: 1px solid #e6dac8;
+    }
+    .summary-note strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--navy);
+      font-family: Oswald, "Arial Narrow", sans-serif;
+      font-size: 18px;
+    }
+    .topline-panel {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .topline-panel .card {
+      background: linear-gradient(180deg, #fffdf9 0%, #f8f2e8 100%);
+    }
+    .topline-panel .section-label {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .table-card {
+      overflow: hidden;
+    }
+    .table-wrap {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Montserrat, Inter, system-ui, sans-serif;
+    }
+    thead th {
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: #f3ede4;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    tbody tr:nth-child(odd) { background: #fcfbf8; }
+    .inline-link {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .section-foot {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+    @media (max-width: 980px) {
+      .hero, .summary-grid, .topline-panel, .story-strip, .storyboard-grid, .finding-grid, .analysis-grid, .figure-grid, .source-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero { padding: 22px; }
+      .section-rail {
+        position: static;
+        border-radius: 22px;
+      }
+      .finding-head, .story-card-topline, .hero-panel-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .split-signal-head, .split-signal-row {
+        grid-template-columns: 1fr;
+      }
+      .watch-row {
+        flex-direction: column;
+      }
+    }
+    </style>
+</head>
+<body>
+
+    <main class="notebook-shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Manual workbook / April 2026</div>
+          <h1>D1 Softball Manual Workbook Report</h1>
+          <p class="hero-subtitle">April 2026 manual workbook import, translated into a publishable markdown brief.</p>
+          <p class="hero-note">This report follows the notebook&#x27;s editorial structure, but swaps in cleaner team-level angles for findings 02 and 07.</p>
+          <div class="badge-row" aria-label="Report metadata">
+            <span class="badge">Schema d1softball_manual_report_v1</span><span class="badge">Generated 2026-04-19T23:17:45.603422+00:00</span><span class="badge">Notebook + markdown + SVG</span><span class="badge">Source: d1softball_manual_april2026</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="hero-panel-top">
+            <div class="section-label">At a Glance</div>
+            <div class="hero-panel-note">Notebook-style output</div>
+          </div>
+          <div class="kpi-grid">
+            <article class="kpi"><div class="meta">Team rows</div><div class="kpi-value">79</div></article><article class="kpi"><div class="meta">Player rows</div><div class="kpi-value">125</div></article><article class="kpi"><div class="meta">Batting players with AB &gt; 0</div><div class="kpi-value">100</div></article><article class="kpi"><div class="meta">Pitching players with IP &gt; 0</div><div class="kpi-value">26</div></article><article class="kpi"><div class="meta">Teams with innings-qualified pitching</div><div class="kpi-value">50</div></article><article class="kpi"><div class="meta">Composite vs. RPI correlation</div><div class="kpi-value">0.40</div></article>
+          </div>
+          <div class="hero-callout">
+            <strong>Why this matters</strong>
+            <ul>
+              <li>Top five teams are separated by only 0.492 composite points.</li>
+              <li>RPI and composite only partially agree, so the top-line story splits cleanly.</li>
+              <li>Texas Tech, Megan Grant, and Tennessee create the strongest pressure points in the file.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <nav class="section-rail" aria-label="Notebook sections">
+        <a href="#overview">Overview</a>
+        <a href="#signals">Signals</a>
+        <a href="#figures">Figures</a>
+        <a href="#storyboard">Storyboard</a>
+        <a href="#findings">Findings</a>
+        <a href="#notes">Notes</a>
+      </nav>
+
+      <section id="overview" class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Editorial bridge</div>
+          <h2>A tight top tier with split ranking signals</h2>
+          <p class="section-subtitle">
+            The report keeps the original workbook structure, but the notebook treatment sharpens the sequencing:
+            story first, evidence second, and a few additional visual cues to make the split rankings and top-heavy
+            player board easier to read.
+          </p>
+        </div>
+
+        <div class="topline-panel">
+          <article class="card">
+            <div class="section-label">Top-line note</div>
+            <h3>Leadership is live, not locked</h3>
+            <p class="summary-copy">
+              Texas Tech leads the composite board, but the top five sit close enough together that weekly movement
+              still matters. That is what makes this workbook feel like a live story instead of a static ranking.
+            </p>
+          </article>
+          <article class="card">
+            <div class="section-label">Story in one glance</div>
+            <h3>RPI and composite split the top line</h3>
+            <p class="summary-copy">
+              Arkansas owns RPI, Texas Tech owns the composite, and the correlation stays only moderate at
+              0.40.
+            </p>
+          </article>
+          <article class="card">
+            <div class="section-label">Watch list</div>
+            <h3>Bat, staff, balance</h3>
+            <p class="summary-copy">
+              Megan Grant, Tennessee, and Nebraska each add a different kind of proof: offensive firepower, run
+              prevention, and balance.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="signals" class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Signals</div>
+          <h2>What the workbook is really saying</h2>
+          <p class="section-subtitle">
+            These companion cards add a little more editorial texture to the existing report structure without
+            changing the underlying findings.
+          </p>
+        </div>
+
+        <div class="story-strip">
+          <article class="card">
+            <div class="section-label">Why this matters</div>
+            <h3>Top-five movement is still in play</h3>
+            <p>Texas Tech leads, but the spread is tight enough for a weekly shuffle.</p>
+            <div class="mini-chart" aria-label="Top five composite score bars"><div class="mini-chart-row"><div class="mini-chart-label">Texas Tech</div><div class="mini-chart-track"><span style="width: 100%"></span></div><div class="mini-chart-value">1.173</div></div><div class="mini-chart-row"><div class="mini-chart-label">UCLA</div><div class="mini-chart-track"><span style="width: 88%"></span></div><div class="mini-chart-value">1.032</div></div><div class="mini-chart-row"><div class="mini-chart-label">Oklahoma</div><div class="mini-chart-track"><span style="width: 70%"></span></div><div class="mini-chart-value">0.815</div></div><div class="mini-chart-row"><div class="mini-chart-label">North Carolina</div><div class="mini-chart-track"><span style="width: 62%"></span></div><div class="mini-chart-value">0.726</div></div><div class="mini-chart-row"><div class="mini-chart-label">Northern Iowa</div><div class="mini-chart-track"><span style="width: 58%"></span></div><div class="mini-chart-value">0.681</div></div></div>
+          </article>
+
+          <article class="card">
+            <div class="section-label">Split signal</div>
+            <h3>RPI and composite do not tell the same story</h3>
+            <p>That makes the Arkansas versus Texas Tech contrast the most important ranking split in the file.</p>
+            <div class="split-signal" aria-label="RPI and composite split signal"><div class="split-signal-head"><span>School</span><span>RPI</span><span>Composite</span></div><div class="split-signal-row"><span class="split-signal-team">Arkansas</span><span class="rank-pill">#1</span><span class="rank-pill">#22</span></div><div class="split-signal-row"><span class="split-signal-team">Texas Tech</span><span class="rank-pill">#9</span><span class="rank-pill">#1</span></div><div class="split-signal-foot">Correlation 0.40 means the two systems agree only part of the time.</div></div>
+          </article>
+
+          <article class="card">
+            <div class="section-label">What to watch next</div>
+            <h3>Big bat, clean staff, balanced profile</h3>
+            <p>These are the three most useful follow-up lenses after the headline rankings.</p>
+            <div class="watch-list" aria-label="What to watch next"><div class="watch-row"><span class="watch-label">Megan Grant</span><span class="watch-value">1.959 OPS, 29 HR</span></div><div class="watch-row"><span class="watch-label">Tennessee</span><span class="watch-value">1.11 ERA, 0.764 WHIP</span></div><div class="watch-row"><span class="watch-label">Nebraska</span><span class="watch-value">Balance gap 0.156</span></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Executive summary</div>
+          <h2>How the report reads at the top end</h2>
+        </div>
+        <div class="summary-grid">
+          <article class="card summary-card">
+            <p class="summary-copy">The imported workbook makes one thing clear immediately: the top end is crowded, but not random. Texas Tech owns the composite crown, UCLA and Oklahoma stay right on its heels, and the RPI table tells a different story with Arkansas at No. 1. At the player level, Megan Grant is the loudest bat in the file, while Tennessee&#x27;s staff gives the cleanest prevention profile among innings-qualified teams.</p>
+            <div class="summary-note">
+              <strong>Method note</strong>
+              Player batting and player pitching do not need to overlap for the workbook to be useful. They are
+              treated as complementary slices rather than a single joined table.
+            </div>
+            <p class="summary-copy">
+              The static notebook lives at <a class="inline-link" href="/reports/d1softball_manual_april2026/notebook.html">notebook.html</a>, with
+              companion markdown at <a class="inline-link" href="/reports/d1softball_manual_april2026/report.md">report.md</a>.
+            </p>
+          </article>
+
+          <article class="card summary-card">
+            <div class="section-label">What the reader should know</div>
+            <ul class="bullet-list">
+              <li>The composite ranking and the RPI ranking are related, but not interchangeable.</li>
+              <li>Tennessee's prevention profile is the cleanest innings-qualified staff story in the workbook.</li>
+              <li>The top player board is top-heavy enough to make the individual leaderboard meaningful.</li>
+              <li>Coverage gaps matter, so the report keeps batting and pitching views separate where needed.</li>
+            </ul>
+            <div class="summary-note">
+              <strong>Notebook bundle</strong>
+              Public bundle: <span style="font-family: JetBrains Mono, Menlo, Consolas, monospace;">/reports/d1softball_manual_april2026</span>
+              <br />
+              Figures: <span style="font-family: JetBrains Mono, Menlo, Consolas, monospace;">/reports/d1softball_manual_april2026/figures</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Key scoreboard</div>
+          <h2>Top five by composite score</h2>
+          <p class="section-subtitle">
+            The table preserves the report payload, while the companion bar chart makes the separation at the top
+            easier to read at a glance.
+          </p>
+        </div>
+        <div class="topline-panel">
+          <article class="card table-card">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Composite</th>
+                    <th>OPS</th>
+                    <th>ERA</th>
+                    <th>RPI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Texas Tech</td><td>1.173</td><td>1.236</td><td>1.77</td><td>9</td></tr><tr><td>2</td><td>UCLA</td><td>1.032</td><td>1.311</td><td>n/a</td><td>8</td></tr><tr><td>3</td><td>Oklahoma</td><td>0.815</td><td>1.360</td><td>2.86</td><td>7</td></tr><tr><td>4</td><td>North Carolina</td><td>0.726</td><td>1.092</td><td>n/a</td><td>37</td></tr><tr><td>5</td><td>Northern Iowa</td><td>0.681</td><td>1.085</td><td>n/a</td><td>n/a</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="section-label">Companion visual</div>
+            <h3>Composite separation</h3>
+            <p>The leaders are strong, but not stretched apart.</p>
+            <div class="mini-chart" aria-label="Top five composite score bars"><div class="mini-chart-row"><div class="mini-chart-label">Texas Tech</div><div class="mini-chart-track"><span style="width: 100%"></span></div><div class="mini-chart-value">1.173</div></div><div class="mini-chart-row"><div class="mini-chart-label">UCLA</div><div class="mini-chart-track"><span style="width: 88%"></span></div><div class="mini-chart-value">1.032</div></div><div class="mini-chart-row"><div class="mini-chart-label">Oklahoma</div><div class="mini-chart-track"><span style="width: 70%"></span></div><div class="mini-chart-value">0.815</div></div><div class="mini-chart-row"><div class="mini-chart-label">North Carolina</div><div class="mini-chart-track"><span style="width: 62%"></span></div><div class="mini-chart-value">0.726</div></div><div class="mini-chart-row"><div class="mini-chart-label">Northern Iowa</div><div class="mini-chart-track"><span style="width: 58%"></span></div><div class="mini-chart-value">0.681</div></div></div>
+          </article>
+
+          <article class="card">
+            <div class="section-label">Takeaway</div>
+            <h3>Texas Tech is first, but not isolated</h3>
+            <p>
+              Top-five spread: 0.492. The top tier clusters tightly enough to keep the weekly
+              conversation alive.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="figures" class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Figures</div>
+          <h2>Editorial charts from the workbook</h2>
+          <p class="section-subtitle">
+            The existing SVG figures stay in place, but the notebook presentation gives them more context and a more
+            deliberate reading order.
+          </p>
+        </div>
+        <div class="figure-grid"><article class="figure-card"><div class="section-label">Figure 1</div><h3>Top 10 Teams by Composite Score</h3><img src="figures/01_top_teams.svg" alt="Top 10 Teams by Composite Score" loading="lazy" /><p class="figure-caption">Texas Tech leads the composite board, with UCLA and Oklahoma close enough to keep the top tier live.</p></article><article class="figure-card"><div class="section-label">Figure 2</div><h3>RPI and Composite Rank Tell Different Top-10 Stories</h3><img src="figures/02_rpi_vs_composite.svg" alt="RPI and Composite Rank Tell Different Top-10 Stories" loading="lazy" /><p class="figure-caption">RPI and the composite model only partially agree, which is why Arkansas and Texas Tech split the top-line story.</p></article><article class="figure-card"><div class="section-label">Figure 3</div><h3>Offense vs. Run Prevention</h3><img src="figures/03_team_signal_map.svg" alt="Offense vs. Run Prevention" loading="lazy" /><p class="figure-caption">The best teams pair a real offense with enough run prevention to keep the run differential alive.</p></article><article class="figure-card"><div class="section-label">Figure 4</div><h3>Top 10 Players by OPS</h3><img src="figures/04_top_players_ops.svg" alt="Top 10 Players by OPS" loading="lazy" /><p class="figure-caption">Megan Grant and Jordan Woolery anchor the player leaderboard, with Katie Stewart and Emily LeGette in the next cluster.</p></article><article class="figure-card"><div class="section-label">Figure 5</div><h3>Tennessee Sets the Run-Prevention Standard</h3><img src="figures/05_top_pitching_staffs.svg" alt="Tennessee Sets the Run-Prevention Standard" loading="lazy" /><p class="figure-caption">Tennessee owns the cleanest prevention profile, while Texas Tech and Alabama stay close enough to matter.</p></article></div>
+      </section>
+
+      <section id="storyboard" class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Storyboard</div>
+          <h2>A tight top tier with split ranking signals</h2>
+          <div class="chip-row" aria-label="Audience tags">
+            <span class="badge">analyst</span><span class="badge">coaching</span><span class="badge">fan</span>
+          </div>
+        </div>
+        <div class="storyboard-grid"><article class="story-card"><div class="story-card-topline"><span class="story-number">1</span><span class="story-type">hook</span><span class="story-finding">Finding 04</span></div><h3>Top-5 race is primed for fan-facing weekly drama</h3><p>The top five teams sit within 0.492 composite points, which is tight enough for weekly movement to matter.</p><div class="story-transition">Start with the story fans feel first: the board is tight enough that weekly movement matters.</div></article><article class="story-card"><div class="story-card-topline"><span class="story-number">2</span><span class="story-type">evidence</span><span class="story-finding">Finding 01</span></div><h3>Texas Tech leads the all-around team profile</h3><p>Texas Tech ranks first by composite score, signaling balanced strength across offense, pitching, discipline, and defense.</p><div class="story-transition">Show why Texas Tech sits at the top of the all-around leaderboard.</div></article><article class="story-card"><div class="story-card-topline"><span class="story-number">3</span><span class="story-type">contrast</span><span class="story-finding">Finding 02</span></div><h3>Arkansas owns the RPI crown, but Texas Tech owns the composite crown</h3><p>RPI and the composite model are only moderately aligned here, with correlation at 0.40; Arkansas is No. 1 in RPI, but Texas Tech is No. 1 in composite.</p><div class="story-transition">Introduce the main contradiction: RPI crowns one team, the composite crowns another.</div></article><article class="story-card"><div class="story-card-topline"><span class="story-number">4</span><span class="story-type">action</span><span class="story-finding">Finding 06</span></div><h3>Megan Grant leads the long-ball race</h3><p>Megan Grant is the loudest individual bat in the workbook, pairing a huge OPS with a home run total that sits far above the next tier.</p><div class="story-transition">Move from team shape to star power with the loudest bat in the workbook.</div></article><article class="story-card"><div class="story-card-topline"><span class="story-number">5</span><span class="story-type">implication</span><span class="story-finding">Finding 03</span></div><h3>Texas Tech profiles as a coaching-efficiency standout</h3><p>Texas Tech combines elite discipline with strong run-prevention markers, a profile that usually signals repeatable coaching value rather than one-off luck.</p><div class="story-transition">Translate the bat into a broader coaching and execution signal.</div></article><article class="story-card"><div class="story-card-topline"><span class="story-number">6</span><span class="story-type">support</span><span class="story-finding">Finding 07</span></div><h3>Tennessee owns the strongest run-prevention staff</h3><p>Among innings-qualified staffs, Tennessee sits at the top of both ERA and WHIP, which gives it the cleanest prevention profile in the workbook.</p><div class="story-transition">Bring in the run-prevention staff that most clearly controls the game.</div></article><article class="story-card"><div class="story-card-topline"><span class="story-number">7</span><span class="story-type">support</span><span class="story-finding">Finding 05</span></div><h3>Nebraska shows one of the cleanest balanced profiles</h3><p>Among innings-qualified teams, Nebraska keeps offense and pitching relatively close together, which usually travels better than a one-sided profile.</p><div class="story-transition">Add the balance note that explains why some teams hold their shape.</div></article><article class="story-card"><div class="story-card-topline"><span class="story-number">8</span><span class="story-type">close</span><span class="story-finding">Finding 08</span></div><h3>The offensive leaderboard is top-heavy, but not singular</h3><p>Oklahoma, UCLA, Texas Tech, and Florida form the clearest offensive tier; the next few schools are good, but the gap to the top four is real.</p><div class="story-transition">Close with the offensive tier that sets the ceiling for the whole board.</div></article></div>
+      </section>
+
+      <section id="findings" class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Findings</div>
+          <h2>Eight publishable insights</h2>
+          <p class="section-subtitle">
+            The structure stays intact, but the notebook adds a little more spacing, rhythm, and visual hierarchy so
+            the findings read like a polished story instead of a raw dump.
+          </p>
+        </div>
+        <div class="finding-grid"><article class="finding-card"><div class="finding-head"><div class="pill-row"><span class="pill">01</span><span class="pill">Workbook</span><span class="pill">Workbook confidence</span></div><div class="finding-provenance">Workbook-derived</div></div><h3>Texas Tech leads the all-around team profile</h3><p class="finding-insight">Texas Tech ranks first by composite score, signaling balanced strength across offense, pitching, discipline, and defense.</p><div class="finding-section"><div class="section-label">Evidence</div><dl class="evidence-grid"><div><dt>team</dt><dd>Texas Tech</dd></div><div><dt>composite_score</dt><dd>1.1728</dd></div><div><dt>composite_rank</dt><dd>1</dd></div></dl></div><div class="finding-section"><div class="section-label">Visual suggestions</div><ul class="visual-list"><li>Top-10 composite bar chart</li><li>Team-signal map</li></ul></div></article><article class="finding-card"><div class="finding-head"><div class="pill-row"><span class="pill">02</span><span class="pill">Workbook</span><span class="pill">Workbook confidence</span></div><div class="finding-provenance">Workbook-derived</div></div><h3>Arkansas owns the RPI crown, but Texas Tech owns the composite crown</h3><p class="finding-insight">RPI and the composite model are only moderately aligned here, with correlation at 0.40; Arkansas is No. 1 in RPI, but Texas Tech is No. 1 in composite.</p><div class="finding-section"><div class="section-label">Evidence</div><dl class="evidence-grid"><div><dt>arkansas_rpi_rank</dt><dd>1</dd></div><div><dt>arkansas_composite_rank</dt><dd>22</dd></div><div><dt>texas_tech_rpi_rank</dt><dd>9</dd></div><div><dt>texas_tech_composite_rank</dt><dd>1</dd></div><div><dt>rank_correlation</dt><dd>0.3988</dd></div></dl></div><div class="finding-section"><div class="section-label">Visual suggestions</div><ul class="visual-list"><li>RPI vs composite scatter</li><li>Rank-difference highlight table</li></ul></div></article><article class="finding-card"><div class="finding-head"><div class="pill-row"><span class="pill">03</span><span class="pill">Workbook</span><span class="pill">Workbook confidence</span></div><div class="finding-provenance">Workbook-derived</div></div><h3>Texas Tech profiles as a coaching-efficiency standout</h3><p class="finding-insight">Texas Tech combines elite discipline with strong run-prevention markers, a profile that usually signals repeatable coaching value rather than one-off luck.</p><div class="finding-section"><div class="section-label">Evidence</div><dl class="evidence-grid"><div><dt>discipline_z</dt><dd>2.4730</dd></div><div><dt>pitching_z</dt><dd>0.7245</dd></div><div><dt>k_bb_ratio</dt><dd>4.7576</dd></div><div><dt>whip</dt><dd>0.8776</dd></div></dl></div><div class="finding-section"><div class="section-label">Visual suggestions</div><ul class="visual-list"><li>Offense vs. pitching scatter</li><li>Texas Tech callout card</li></ul></div></article><article class="finding-card"><div class="finding-head"><div class="pill-row"><span class="pill">04</span><span class="pill">Workbook</span><span class="pill">Workbook confidence</span></div><div class="finding-provenance">Workbook-derived</div></div><h3>Top-5 race is primed for fan-facing weekly drama</h3><p class="finding-insight">The top five teams sit within 0.492 composite points, which is tight enough for weekly movement to matter.</p><div class="finding-section"><div class="section-label">Evidence</div><dl class="evidence-grid"><div><dt>top5_teams</dt><dd>Texas Tech, UCLA, Oklahoma, North Carolina, Northern Iowa</dd></div><div><dt>top1_score</dt><dd>1.1728</dd></div><div><dt>top5_score</dt><dd>0.6808</dd></div><div><dt>gap</dt><dd>0.4920</dd></div></dl></div><div class="finding-section"><div class="section-label">Visual suggestions</div><ul class="visual-list"><li>Top-10 composite bars</li><li>Top-5 gap callout</li></ul></div></article><article class="finding-card"><div class="finding-head"><div class="pill-row"><span class="pill">05</span><span class="pill">Workbook</span><span class="pill">Workbook confidence</span></div><div class="finding-provenance">Workbook-derived</div></div><h3>Nebraska shows one of the cleanest balanced profiles</h3><p class="finding-insight">Among innings-qualified teams, Nebraska keeps offense and pitching relatively close together, which usually travels better than a one-sided profile.</p><div class="finding-section"><div class="section-label">Evidence</div><dl class="evidence-grid"><div><dt>offense_z</dt><dd>0.7758</dd></div><div><dt>pitching_z</dt><dd>0.6201</dd></div><div><dt>balance_gap</dt><dd>0.1557</dd></div></dl></div><div class="finding-section"><div class="section-label">Visual suggestions</div><ul class="visual-list"><li>Offense vs. pitching scatter</li><li>Balance-gap mini table</li></ul></div></article><article class="finding-card"><div class="finding-head"><div class="pill-row"><span class="pill">06</span><span class="pill">Workbook</span><span class="pill">Workbook confidence</span></div><div class="finding-provenance">Workbook-derived</div></div><h3>Megan Grant leads the long-ball race</h3><p class="finding-insight">Megan Grant is the loudest individual bat in the workbook, pairing a huge OPS with a home run total that sits far above the next tier.</p><div class="finding-section"><div class="section-label">Evidence</div><dl class="evidence-grid"><div><dt>team</dt><dd>UCLA</dd></div><div><dt>ops</dt><dd>1.9587</dd></div><div><dt>hr</dt><dd>29</dd></div><div><dt>ab</dt><dd>108</dd></div></dl></div><div class="finding-section"><div class="section-label">Visual suggestions</div><ul class="visual-list"><li>Top player OPS bars</li><li>Home-run leaderboard</li></ul></div></article><article class="finding-card"><div class="finding-head"><div class="pill-row"><span class="pill">07</span><span class="pill">Workbook</span><span class="pill">Workbook confidence</span></div><div class="finding-provenance">Workbook-derived</div></div><h3>Tennessee owns the strongest run-prevention staff</h3><p class="finding-insight">Among innings-qualified staffs, Tennessee sits at the top of both ERA and WHIP, which gives it the cleanest prevention profile in the workbook.</p><div class="finding-section"><div class="section-label">Evidence</div><dl class="evidence-grid"><div><dt>era</dt><dd>1.1100</dd></div><div><dt>whip</dt><dd>0.7642</dd></div><div><dt>k_bb_ratio</dt><dd>3.7444</dd></div><div><dt>ip</dt><dd>276.1000</dd></div></dl></div><div class="finding-section"><div class="section-label">Visual suggestions</div><ul class="visual-list"><li>Pitching-staff leaderboard</li><li>Prevention profile card</li></ul></div></article><article class="finding-card"><div class="finding-head"><div class="pill-row"><span class="pill">08</span><span class="pill">Workbook</span><span class="pill">Workbook confidence</span></div><div class="finding-provenance">Workbook-derived</div></div><h3>The offensive leaderboard is top-heavy, but not singular</h3><p class="finding-insight">Oklahoma, UCLA, Texas Tech, and Florida form the clearest offensive tier; the next few schools are good, but the gap to the top four is real.</p><div class="finding-section"><div class="section-label">Evidence</div><dl class="evidence-grid"><div><dt>top_4</dt><dd>Oklahoma, UCLA, Texas Tech, Florida</dd></div><div><dt>top_4_ops</dt><dd>1.360, 1.311, 1.236, 1.103</dd></div></dl></div><div class="finding-section"><div class="section-label">Visual suggestions</div><ul class="visual-list"><li>Top-10 team OPS chart</li><li>Offense-vs-pitching map</li></ul></div></article></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Deep dive queue</div>
+          <h2>What to study next</h2>
+        </div>
+        <div class="analysis-grid"><article class="analysis-card"><div class="analysis-priority">high</div><h3>Which teams overperform expected results once schedule strength is introduced?</h3><p>Separates true strength from context effects and improves ranking stability.</p><div class="analysis-subsection"><div class="section-label">Needed data</div><p class="analysis-copy">team-level game logs, opponent quality, home/away</p></div><div class="analysis-subsection"><div class="section-label">Method</div><p class="analysis-copy">Schedule-adjusted residual modeling</p></div></article><article class="analysis-card"><div class="analysis-priority">high</div><h3>Which player profiles are most predictive of postseason run production?</h3><p>Identifies transferable offensive traits under stronger pitching.</p><div class="analysis-subsection"><div class="section-label">Needed data</div><p class="analysis-copy">player splits, high-leverage situations, postseason samples</p></div><div class="analysis-subsection"><div class="section-label">Method</div><p class="analysis-copy">Feature importance with holdout seasons</p></div></article><article class="analysis-card"><div class="analysis-priority">medium</div><h3>Where does pitching usage create hidden fatigue or efficiency edges?</h3><p>Supports coaching decisions on rotation, bullpen leverage, and recovery windows.</p><div class="analysis-subsection"><div class="section-label">Needed data</div><p class="analysis-copy">pitching appearances, days rest, opponent strength</p></div><div class="analysis-subsection"><div class="section-label">Method</div><p class="analysis-copy">Usage clustering + rolling trend decomposition</p></div></article><article class="analysis-card"><div class="analysis-priority">medium</div><h3>Which fan-facing storylines have the highest week-to-week volatility?</h3><p>Improves content planning around credible, high-interest swings.</p><div class="analysis-subsection"><div class="section-label">Needed data</div><p class="analysis-copy">weekly rankings, individual performance deltas, team outcomes</p></div><div class="analysis-subsection"><div class="section-label">Method</div><p class="analysis-copy">Volatility index + change-point detection</p></div></article></div>
+      </section>
+
+      <section id="notes" class="section-block">
+        <div class="section-title-wrap">
+          <div class="section-label">Source notes</div>
+          <h2>Coverage and artifact trail</h2>
+        </div>
+        <div class="source-grid"><article class="info-card"><div class="section-label">Data notes</div><ul class="bullet-list"><li>The workbook is partial by design: batting and pitching rows are not fully overlapped, so player-level analysis is better treated as two complementary slices rather than a single joined table.</li><li>Team-level claims are strongest where both batting and pitching coverage exist, especially among the innings-qualified staffs used in the prevention charts.</li><li>The report uses the workbook as a snapshot, not a season-complete game-log feed.</li><li>Player batting and player pitching do not need to overlap for this workbook to be useful.</li></ul></article><article class="info-card"><div class="section-label">Source artifacts</div><dl class="artifact-list"><div><dt>Public bundle</dt><dd>/reports/d1softball_manual_april2026</dd></div><div><dt>Public notebook</dt><dd>/reports/d1softball_manual_april2026/notebook.html</dd></div><div><dt>Public markdown</dt><dd>/reports/d1softball_manual_april2026/report.md</dd></div><div><dt>Public metadata</dt><dd>/reports/d1softball_manual_april2026/report_metadata.json</dd></div><div><dt>Public figures</dt><dd>/reports/d1softball_manual_april2026/figures</dd></div><div><dt>Report directory</dt><dd>/Users/krystalbeasley/Documents/Softball 2026/reports/d1softball_manual_april2026</dd></div></dl><div class="artifact-foot">Figures: 5 | Dataset rows: 79 teams / 125 players</div></article></div>
+      </section>
+
+      <div class="footer">
+        Generated 2026-04-19T23:17:45.603422+00:00 from the manual workbook bundle. Public metadata: /reports/d1softball_manual_april2026/report_metadata.json
+      </div>
+    </main>
+    
+</body>
+</html>

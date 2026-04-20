@@ -33,6 +33,8 @@ export default function EdaPage() {
           <div className="meta">Latest Run</div>
           <h3>{artifacts.metadata.run_id}</h3>
           <p className="meta">Label: {artifacts.metadata.run_label}</p>
+          <p className="meta">Profile: {artifacts.metadata.config.profile_name}</p>
+          <p className="meta">Dataset: {artifacts.metadata.source.dataset_label}</p>
           <p>
             Teams: {artifacts.metadata.source.teams_rows} | Players: {artifacts.metadata.source.players_rows}
           </p>

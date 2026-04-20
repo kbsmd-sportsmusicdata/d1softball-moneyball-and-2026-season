@@ -20,6 +20,7 @@ HandoffMode = Literal["none", "related", "full"]
 
 RELATED_SOURCE_FILES = [
     "scripts/build_d1softball_manual_report.py",
+    "scripts/manual_notebook.py",
     "scripts/sync_manual_report_bundle.py",
     "scripts/report_workflow.py",
     "dashboard/app/report/page.tsx",
@@ -205,6 +206,7 @@ def build_handoff_doc(bundle_dir: Path, mode: HandoffMode, source_paths: Iterabl
     report_md = report_copy_dir / "report.md"
     report_data = report_copy_dir / "report_data.json"
     report_metadata = report_copy_dir / "report_metadata.json"
+    report_notebook = report_copy_dir / "notebook.html"
     figures_dir = report_copy_dir / "figures"
 
     lines = [
@@ -221,6 +223,7 @@ def build_handoff_doc(bundle_dir: Path, mode: HandoffMode, source_paths: Iterabl
         f"- Report markdown: `{report_md}`",
         f"- Report data JSON: `{report_data}`",
         f"- Report metadata JSON: `{report_metadata}`",
+        f"- Notebook HTML: `{report_notebook}`",
         f"- Figures folder: `{figures_dir}`",
         "",
         "## Why it matters",
