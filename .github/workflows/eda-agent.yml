@@ -10,6 +10,14 @@ on:
         description: "Label for this EDA run"
         required: false
         default: "github-actions"
+      source_mode:
+        description: "Pick the dataset source mode for manual runs"
+        required: false
+        default: "repo_layout"
+        type: choice
+        options:
+          - repo_layout
+          - manifest
       profile_name:
         description: "Profile override"
         required: false
@@ -57,15 +65,45 @@ jobs:
         if: steps.gate.outputs.should_run == 'true' || github.event_name == 'workflow_dispatch'
         env:
           RUN_LABEL: ${{ inputs.run_label }}
+          SOURCE_MODE: ${{ inputs.source_mode || 'auto' }}
           PROFILE_NAME: ${{ inputs.profile_name || 'auto' }}
           MANIFEST_PATH: ${{ inputs.manifest_path }}
         run: |
           set -euo pipefail
-          args=(--repo-root . --output-root eda_runs)
+          args=(--output-root eda_runs --source-mode "${SOURCE_MODE:-auto}")
+          manifest_file=""
 
-          if [ -n "${MANIFEST_PATH:-}" ] && [ -f "${MANIFEST_PATH}" ]; then
-            args=(--manifest "${MANIFEST_PATH}" --output-root eda_runs)
-          fi
+          case "${SOURCE_MODE:-auto}" in
+            repo_layout)
+              args+=(--repo-root .)
+              ;;
+            manifest)
+              if [ -n "${MANIFEST_PATH:-}" ] && [ -f "${MANIFEST_PATH}" ]; then
+                manifest_file="${MANIFEST_PATH}"
+              else
+                for candidate in eda_agent.manifest.json examples/eda_agent.manifest.json; do
+                  if [ -f "${candidate}" ]; then
+                    manifest_file="${candidate}"
+                    break
+                  fi
+                done
+              fi
+
+              if [ -z "${manifest_file}" ]; then
+                echo "Manifest mode was selected but no manifest file was found."
+                exit 1
+              fi
+
+              args+=(--manifest "${manifest_file}" --repo-root .)
+              ;;
+            *)
+              if [ -n "${MANIFEST_PATH:-}" ] && [ -f "${MANIFEST_PATH}" ]; then
+                manifest_file="${MANIFEST_PATH}"
+                args+=(--manifest "${manifest_file}")
+              fi
+              args+=(--repo-root .)
+              ;;
+          esac
 
           if [ -n "${PROFILE_NAME:-}" ] && [ "${PROFILE_NAME}" != "auto" ]; then
             args+=(--profile "${PROFILE_NAME}")
@@ -82,6 +120,7 @@ jobs:
           {
             echo "## EDA agent"
             echo ""
+            echo "- Source mode: \`${{ inputs.source_mode || 'auto' }}\`"
             echo "- Profile input: \`${{ inputs.profile_name || 'auto' }}\`"
             echo "- Manifest input: \`${{ inputs.manifest_path || 'auto-detect' }}\`"
             echo "- Run label: \`${{ inputs.run_label || 'github-actions' }}\`"
@@ -114,4 +153,3 @@ jobs:
             git commit -m "chore(eda): refresh analyst runs"
             git push
           fi
-

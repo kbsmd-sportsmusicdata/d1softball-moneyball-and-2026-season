@@ -120,7 +120,10 @@ Examples:
 GitHub Actions:
 
 - `eda-agent` runs the v2 CLI on a schedule or manually.
-- It auto-picks a profile from a repo manifest when present, otherwise it falls back to repo-layout discovery.
+- Manual runs can choose `source_mode` in the Actions UI:
+  - `repo_layout` ignores manifests and uses the latest `data/processed/*`
+  - `manifest` uses `eda_agent.manifest.json` if present
+- It auto-picks a profile from the resolved dataset unless you override `--profile`.
 - `deploy-dashboard` now redeploys when `eda_runs/` changes so the `/eda` viewer stays current.
 
 ## Data outputs

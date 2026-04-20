@@ -14,6 +14,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--teams-path", type=Path, help="Explicit teams CSV path.")
     parser.add_argument("--players-path", type=Path, help="Explicit players CSV path.")
     parser.add_argument("--manifest", type=Path, dest="manifest_path", help="JSON manifest describing dataset paths.")
+    parser.add_argument(
+        "--source-mode",
+        type=str,
+        default="auto",
+        choices=["auto", "repo_layout", "manifest"],
+        help="How to resolve the dataset bundle when explicit paths are not provided.",
+    )
     parser.add_argument("--profile", type=str, default="auto", help="Profile name or path to a profile JSON file.")
     parser.add_argument("--run-label", type=str, default="default", help="Human-readable label for the run.")
     parser.add_argument("--output-root", type=Path, default=Path("eda_runs"), help="Folder where run artifacts are written.")
@@ -39,6 +46,7 @@ def main() -> None:
         teams_path=args.teams_path,
         players_path=args.players_path,
         manifest_path=args.manifest_path,
+        source_mode=args.source_mode,
         profile_name=args.profile,
         output_root=args.output_root,
         run_label=args.run_label,

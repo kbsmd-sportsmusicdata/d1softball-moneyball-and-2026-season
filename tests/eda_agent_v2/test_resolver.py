@@ -80,3 +80,37 @@ def test_manifest_auto_detection_from_repo_root(tmp_path: Path):
     assert bundle.resolution_mode == "manifest"
     assert bundle.profile_name == "softball"
     assert bundle.dataset_label == "repo"
+
+
+def test_repo_layout_mode_ignores_manifest(tmp_path: Path):
+    repo_root = tmp_path / "repo"
+    _write_dataset(repo_root / "data" / "processed" / "2026-04-10")
+    (repo_root / "eda_agent.manifest.json").write_text(
+        json.dumps(
+            {
+                "source_root": str(repo_root),
+                "dataset_label": "repo",
+                "dataset_version": "2026-04-10",
+                "profile_name": "basketball",
+                "teams_path": "data/processed/2026-04-10/teams.csv",
+                "players_path": "data/processed/2026-04-10/players.csv",
+            }
+        )
+    )
+
+    bundle = DatasetResolver.resolve_bundle(EDARunConfig(repo_root=repo_root, source_mode="repo_layout"))
+    assert bundle.resolution_mode == "latest_processed"
+    assert bundle.profile_name in {"softball", "generic"}
+    assert bundle.dataset_label == "2026-04-10"
+
+
+def test_manifest_mode_requires_manifest(tmp_path: Path):
+    repo_root = tmp_path / "repo"
+    _write_dataset(repo_root / "data" / "processed" / "2026-04-10")
+
+    try:
+        DatasetResolver.resolve_bundle(EDARunConfig(repo_root=repo_root, source_mode="manifest"))
+    except RuntimeError as exc:
+        assert "source_mode=manifest" in str(exc)
+    else:
+        raise AssertionError("manifest mode should fail when no manifest exists")

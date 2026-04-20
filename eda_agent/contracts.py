@@ -40,6 +40,7 @@ class EDARunConfig:
     teams_path: Path | None = None
     players_path: Path | None = None
     manifest_path: Path | None = None
+    source_mode: str = "auto"
     profile_name: str = "auto"
     output_root: Path = Path("eda_runs")
     run_label: str = "default"

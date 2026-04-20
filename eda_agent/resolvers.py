@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-from itertools import chain
 from pathlib import Path
 from typing import Any
 
@@ -61,6 +60,32 @@ def _common_source_root(*paths: Path | None) -> Path:
     return common
 
 
+def _resolve_manifest_bundle(manifest_path: Path, config: EDARunConfig) -> DatasetBundle:
+    manifest_path = manifest_path.resolve()
+    payload = _read_manifest(manifest_path)
+    manifest_root = Path(payload.get("source_root", manifest_path.parent)).resolve()
+    teams_path = _resolve_relative(str(payload["teams_path"]), manifest_root)
+    players_path = _resolve_relative(str(payload["players_path"]), manifest_root)
+    profile_name = str(payload.get("profile_name", config.profile_name or "auto"))
+    if profile_name == "auto":
+        profile_name = infer_profile_from_paths(teams_path, players_path)
+    extra_files = {
+        str(key): _resolve_relative(str(value), manifest_root)
+        for key, value in payload.get("extra_files", {}).items()
+        if isinstance(value, (str, Path))
+    }
+    return DatasetBundle(
+        source_root=manifest_root,
+        teams_path=teams_path,
+        players_path=players_path,
+        dataset_label=str(payload.get("dataset_label", manifest_root.name)),
+        dataset_version=payload.get("dataset_version"),
+        profile_name=profile_name,
+        resolution_mode="manifest",
+        extra_files=extra_files,
+    )
+
+
 def resolve_bundle(config: EDARunConfig) -> DatasetBundle:
     if config.teams_path and config.players_path:
         source_root = config.repo_root or _common_source_root(config.teams_path, config.players_path)
@@ -81,33 +106,20 @@ def resolve_bundle(config: EDARunConfig) -> DatasetBundle:
         raise RuntimeError("Provide both --teams-path and --players-path, or neither.")
 
     data_root = detect_data_root(config.repo_root)
+    source_mode = (config.source_mode or "auto").strip().lower()
+    if source_mode not in {"auto", "repo_layout", "manifest"}:
+        raise RuntimeError(f"Invalid source_mode: {config.source_mode}")
 
     manifest_path = config.manifest_path
-    if manifest_path is None:
+    if source_mode != "repo_layout" and manifest_path is None:
         manifest_path = _find_auto_manifest(data_root)
 
-    if manifest_path:
-        manifest_path = manifest_path.resolve()
-        payload = _read_manifest(manifest_path)
-        manifest_root = Path(payload.get("source_root", manifest_path.parent)).resolve()
-        teams_path = _resolve_relative(str(payload["teams_path"]), manifest_root)
-        players_path = _resolve_relative(str(payload["players_path"]), manifest_root)
-        profile_name = str(payload.get("profile_name", config.profile_name or "auto"))
-        if profile_name == "auto":
-            profile_name = infer_profile_from_paths(teams_path, players_path)
-        return DatasetBundle(
-            source_root=manifest_root,
-            teams_path=teams_path,
-            players_path=players_path,
-            dataset_label=str(payload.get("dataset_label", manifest_root.name)),
-            dataset_version=payload.get("dataset_version"),
-            profile_name=profile_name,
-            resolution_mode="manifest",
-            extra_files={
-                str(key): _resolve_relative(str(value), manifest_root)
-                for key, value in payload.get("extra_files", {}).items()
-                if isinstance(value, (str, Path))
-            },
+    if manifest_path is not None and source_mode != "repo_layout":
+        return _resolve_manifest_bundle(manifest_path, config)
+
+    if source_mode == "manifest":
+        raise RuntimeError(
+            "source_mode=manifest but no manifest was found. Provide --manifest or add eda_agent.manifest.json."
         )
 
     teams_path, players_path, latest_folder = find_latest_processed_dataset(data_root)
