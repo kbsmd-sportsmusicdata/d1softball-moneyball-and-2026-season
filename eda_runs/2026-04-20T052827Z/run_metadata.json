@@ -1,0 +1,30 @@
+{
+  "schema_version": "eda_agent_v2",
+  "run_id": "2026-04-20T052827Z",
+  "run_label": "github-actions",
+  "generated_at_utc": "2026-04-20T05:28:27.647635+00:00",
+  "source": {
+    "mode": "manifest",
+    "profile_name": "softball",
+    "dataset_label": "softball-repo",
+    "dataset_version": "2026-04-16",
+    "source_root": "/home/runner/work/d1softball-moneyball-and-2026-season/d1softball-moneyball-and-2026-season",
+    "teams_path": "/home/runner/work/d1softball-moneyball-and-2026-season/d1softball-moneyball-and-2026-season/data/processed/2026-04-16/teams.csv",
+    "players_path": "/home/runner/work/d1softball-moneyball-and-2026-season/d1softball-moneyball-and-2026-season/data/processed/2026-04-16/players.csv",
+    "teams_rows": 79,
+    "players_rows": 125
+  },
+  "config": {
+    "profile_name": "generic",
+    "max_findings": 8,
+    "llm_enabled": false,
+    "llm_model": "gpt-4o-mini",
+    "qualification_rules": []
+  },
+  "outputs": {
+    "findings_count": 5,
+    "storyboard_steps": 5,
+    "deeper_analysis_count": 4
+  },
+  "warnings": []
+}

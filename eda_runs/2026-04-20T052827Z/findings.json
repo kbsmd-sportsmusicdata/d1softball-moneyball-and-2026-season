@@ -1,0 +1,152 @@
+[
+  {
+    "id": "FM1",
+    "title": "Analytical lens is currently data-limited",
+    "category": "analytical",
+    "insight": "This angle is included via fallback coverage until richer fields are available.",
+    "evidence": {
+      "teams_rows": 79,
+      "players_rows": 125
+    },
+    "confidence": 0.52,
+    "audience_tags": [
+      "analyst"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "table",
+        "x": "column",
+        "y": "missing_pct",
+        "segment": "dataset_profile",
+        "why": "Show data gaps behind this lens."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "row_counts"
+      ],
+      "generation": "deterministic_fallback",
+      "profile": "generic"
+    }
+  },
+  {
+    "id": "FM2",
+    "title": "Elite Talent lens is currently data-limited",
+    "category": "elite_talent",
+    "insight": "This angle is included via fallback coverage until richer fields are available.",
+    "evidence": {
+      "teams_rows": 79,
+      "players_rows": 125
+    },
+    "confidence": 0.52,
+    "audience_tags": [
+      "analyst"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "table",
+        "x": "column",
+        "y": "missing_pct",
+        "segment": "dataset_profile",
+        "why": "Show data gaps behind this lens."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "row_counts"
+      ],
+      "generation": "deterministic_fallback",
+      "profile": "generic"
+    }
+  },
+  {
+    "id": "FM3",
+    "title": "Coaching lens is currently data-limited",
+    "category": "coaching",
+    "insight": "This angle is included via fallback coverage until richer fields are available.",
+    "evidence": {
+      "teams_rows": 79,
+      "players_rows": 125
+    },
+    "confidence": 0.52,
+    "audience_tags": [
+      "analyst"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "table",
+        "x": "column",
+        "y": "missing_pct",
+        "segment": "dataset_profile",
+        "why": "Show data gaps behind this lens."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "row_counts"
+      ],
+      "generation": "deterministic_fallback",
+      "profile": "generic"
+    }
+  },
+  {
+    "id": "FM4",
+    "title": "Fan First lens is currently data-limited",
+    "category": "fan_first",
+    "insight": "This angle is included via fallback coverage until richer fields are available.",
+    "evidence": {
+      "teams_rows": 79,
+      "players_rows": 125
+    },
+    "confidence": 0.52,
+    "audience_tags": [
+      "analyst"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "table",
+        "x": "column",
+        "y": "missing_pct",
+        "segment": "dataset_profile",
+        "why": "Show data gaps behind this lens."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "row_counts"
+      ],
+      "generation": "deterministic_fallback",
+      "profile": "generic"
+    }
+  },
+  {
+    "id": "FX1",
+    "title": "Dataset quality checkpoint 1",
+    "category": "analytical",
+    "insight": "Additional quality/context signal retained to satisfy the minimum finding count.",
+    "evidence": {
+      "teams_rows": 79,
+      "players_rows": 125
+    },
+    "confidence": 0.55,
+    "audience_tags": [
+      "analyst"
+    ],
+    "visual_suggestions": [
+      {
+        "chart_type": "table",
+        "x": "column",
+        "y": "missing_pct",
+        "segment": "dataset_profile",
+        "why": "Provide quick data reliability scan."
+      }
+    ],
+    "provenance": {
+      "metrics_used": [
+        "row_counts"
+      ],
+      "generation": "deterministic_fallback",
+      "profile": "generic"
+    }
+  }
+]

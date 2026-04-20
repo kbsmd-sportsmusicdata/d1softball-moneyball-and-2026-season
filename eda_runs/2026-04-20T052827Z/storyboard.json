@@ -1,0 +1,44 @@
+{
+  "arc_title": "What stands out in the latest dataset?",
+  "audience_tags": [
+    "analyst",
+    "fan"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "finding_id": "FM4",
+      "step_type": "hook",
+      "narrative": "Fan First lens is currently data-limited: This angle is included via fallback coverage until richer fields are available.",
+      "transition": "Start with what the audience immediately cares about."
+    },
+    {
+      "order": 2,
+      "finding_id": "FM1",
+      "step_type": "evidence",
+      "narrative": "Analytical lens is currently data-limited: This angle is included via fallback coverage until richer fields are available.",
+      "transition": "Ground the hook in measurable context."
+    },
+    {
+      "order": 3,
+      "finding_id": "FX1",
+      "step_type": "contrast",
+      "narrative": "Dataset quality checkpoint 1: Additional quality/context signal retained to satisfy the minimum finding count.",
+      "transition": "Introduce standout individuals to create contrast."
+    },
+    {
+      "order": 4,
+      "finding_id": "FM2",
+      "step_type": "implication",
+      "narrative": "Elite Talent lens is currently data-limited: This angle is included via fallback coverage until richer fields are available.",
+      "transition": "Translate data into strategic implications."
+    },
+    {
+      "order": 5,
+      "finding_id": "FM3",
+      "step_type": "action",
+      "narrative": "Coaching lens is currently data-limited: This angle is included via fallback coverage until richer fields are available.",
+      "transition": "End with a practical watch-list or action cue."
+    }
+  ]
+}
