@@ -1,8 +1,8 @@
 {
   "schema_version": "eda_agent_v2",
-  "run_id": "2026-04-20T052827Z",
-  "run_path": "eda_runs/2026-04-20T052827Z",
-  "generated_at_utc": "2026-04-20T05:28:27.647635+00:00",
-  "profile_name": "generic",
+  "run_id": "2026-04-20T053145Z",
+  "run_path": "eda_runs/2026-04-20T053145Z",
+  "generated_at_utc": "2026-04-20T05:31:45.397089+00:00",
+  "profile_name": "softball",
   "dataset_label": "softball-repo"
 }
