@@ -1,0 +1,43 @@
+{
+  "schema_version": "eda_agent_v2",
+  "run_id": "2026-04-20T052200Z",
+  "run_label": "github-actions",
+  "generated_at_utc": "2026-04-20T05:22:00.795946+00:00",
+  "source": {
+    "mode": "latest_processed",
+    "profile_name": "softball",
+    "dataset_label": "2026-04-16",
+    "dataset_version": "2026-04-16",
+    "source_root": ".",
+    "teams_path": "data/processed/2026-04-16/teams.csv",
+    "players_path": "data/processed/2026-04-16/players.csv",
+    "teams_rows": 79,
+    "players_rows": 125
+  },
+  "config": {
+    "profile_name": "softball",
+    "max_findings": 8,
+    "llm_enabled": false,
+    "llm_model": "gpt-4o-mini",
+    "qualification_rules": [
+      {
+        "role": "qualified_hitters",
+        "entity": "players",
+        "column": "ab",
+        "minimum": 30
+      },
+      {
+        "role": "qualified_pitchers",
+        "entity": "players",
+        "column": "ip",
+        "minimum": 20.0
+      }
+    ]
+  },
+  "outputs": {
+    "findings_count": 8,
+    "storyboard_steps": 8,
+    "deeper_analysis_count": 4
+  },
+  "warnings": []
+}

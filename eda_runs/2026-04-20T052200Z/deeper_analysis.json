@@ -1,0 +1,46 @@
+[
+  {
+    "question": "Which teams overperform expected results once schedule strength is introduced?",
+    "importance": "Separates true strength from context effects and improves ranking stability.",
+    "needed_data": [
+      "team-level game logs",
+      "opponent quality",
+      "home/away"
+    ],
+    "method": "Schedule-adjusted residual modeling",
+    "priority": "high"
+  },
+  {
+    "question": "Which player profiles are most predictive of postseason run production?",
+    "importance": "Identifies transferable offensive traits under stronger competition.",
+    "needed_data": [
+      "player splits",
+      "high-leverage situations",
+      "postseason samples"
+    ],
+    "method": "Feature importance with holdout seasons",
+    "priority": "high"
+  },
+  {
+    "question": "Where does usage create hidden fatigue or efficiency edges?",
+    "importance": "Supports coaching decisions on rotation, workload, and recovery windows.",
+    "needed_data": [
+      "player usage",
+      "game logs",
+      "days rest"
+    ],
+    "method": "Usage clustering + rolling trend decomposition",
+    "priority": "medium"
+  },
+  {
+    "question": "Which fan-facing storylines have the highest week-to-week volatility?",
+    "importance": "Improves content planning around credible, high-interest swings.",
+    "needed_data": [
+      "weekly rankings",
+      "individual performance deltas",
+      "team outcomes"
+    ],
+    "method": "Volatility index + change-point detection",
+    "priority": "medium"
+  }
+]
