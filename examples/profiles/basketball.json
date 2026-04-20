@@ -1,0 +1,120 @@
+{
+  "name": "basketball",
+  "sport": "basketball",
+  "entity_names": {
+    "team": "team",
+    "player": "player",
+    "game": "game"
+  },
+  "required_files": ["teams.csv", "players.csv"],
+  "thresholds": {
+    "qualification_rules": [
+      {"role": "qualified_scorers", "entity": "players", "column": "minutes", "minimum": 10.0},
+      {"role": "qualified_rotation", "entity": "players", "column": "minutes", "minimum": 15.0}
+    ]
+  },
+  "metric_map": {
+    "team_rank": "net_rating",
+    "team_balance_left": "off_rating",
+    "team_balance_right": "def_rating",
+    "team_coaching_a": "assist_rate",
+    "team_coaching_b": "turnover_rate",
+    "player_power": "points",
+    "player_slug": "three_pointers",
+    "player_workload": "minutes",
+    "pitcher_workload": "minutes",
+    "pitcher_k": "steals",
+    "player_volatility_a": "usage_rate",
+    "player_volatility_b": "turnover_rate",
+    "team_prevention_a": "def_rating",
+    "team_prevention_b": "opp_fg_pct"
+  },
+  "finding_categories": ["analytical", "elite_talent", "coaching", "fan_first"],
+  "storyboard_template": {
+    "arc_title": "Who controls the game when the pace gets high?",
+    "audience_tags": ["analyst", "coaching", "fan"],
+    "priority_categories": ["fan_first", "analytical", "elite_talent", "coaching"]
+  },
+  "alias_rules": {
+    "teams": {
+      "net_rating": ["net_rating", "rating"],
+      "off_rating": ["off_rating", "ortg", "offense_rating"],
+      "def_rating": ["def_rating", "drtg", "defense_rating"],
+      "assist_rate": ["assist_rate", "ast_rate"],
+      "turnover_rate": ["turnover_rate", "to_rate"],
+      "opp_fg_pct": ["opp_fg_pct", "opp_fg", "opponent_fg_pct"]
+    },
+    "players": {
+      "minutes": ["minutes", "min", "mpg"],
+      "points": ["points", "pts"],
+      "assists": ["assists", "ast"],
+      "rebounds": ["rebounds", "reb"],
+      "usage_rate": ["usage_rate", "usg_rate"],
+      "turnover_rate": ["turnover_rate", "tov_rate"],
+      "three_pointers": ["three_pointers", "3pm", "threes"],
+      "steals": ["steals", "stl"]
+    }
+  },
+  "finding_specs": [
+    {
+      "id": "B01",
+      "kind": "team_rank",
+      "category": "analytical",
+      "entity": "teams",
+      "sort_by": "net_rating",
+      "title_template": "{team_name} leads the net-rating board",
+      "insight_template": "{team_name} sits atop the efficiency margin, which is usually the cleanest summary of team strength.",
+      "confidence": 0.9,
+      "audience_tags": ["analyst", "fan"],
+      "visual_suggestions": [
+        {"chart_type": "bar", "x": "team_name", "y": "net_rating", "segment": "top_10_teams", "why": "Show efficiency separation."}
+      ]
+    },
+    {
+      "id": "B03",
+      "kind": "player_rank",
+      "category": "elite_talent",
+      "entity": "players",
+      "role": "qualified_scorers",
+      "sort_by": "points",
+      "title_template": "{player_name} is the top scoring engine",
+      "insight_template": "{player_name} leads the qualified player pool in points, giving the offense a true primary creator.",
+      "confidence": 0.89,
+      "audience_tags": ["analyst", "fan"],
+      "visual_suggestions": [
+        {"chart_type": "bar", "x": "player_name", "y": "points", "segment": "qualified_players_top15", "why": "Rank top scorers."}
+      ]
+    },
+    {
+      "id": "B06",
+      "kind": "combo",
+      "category": "coaching",
+      "entity": "teams",
+      "metrics": ["assist_rate", "turnover_rate"],
+      "direction": "higher",
+      "title_template": "{team_name} shows the cleanest playmaking profile",
+      "insight_template": "{team_name} pairs strong assist creation with careful ball control, a classic coaching efficiency signal.",
+      "confidence": 0.79,
+      "audience_tags": ["coaching", "analyst"],
+      "visual_suggestions": [
+        {"chart_type": "scatter", "x": "assist_rate", "y": "turnover_rate", "segment": "all_teams", "why": "Identify clean offensive systems."}
+      ]
+    },
+    {
+      "id": "B08",
+      "kind": "top_race",
+      "category": "fan_first",
+      "entity": "teams",
+      "rank_metric": "net_rating",
+      "top_n": 5,
+      "ascending": false,
+      "title_template": "Top-5 race is ready for weekly movement",
+      "insight_template": "The best teams are close enough together that one strong week can materially reshuffle the table.",
+      "confidence": 0.76,
+      "audience_tags": ["fan", "analyst"],
+      "visual_suggestions": [
+        {"chart_type": "line", "x": "week_or_run_date", "y": "net_rating", "segment": "top_5_teams", "why": "Track movement over time."}
+      ]
+    }
+  ]
+}

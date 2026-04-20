@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="760" viewBox="0 0 1180 760" role="img" aria-label="D1 Softball report figure">
+<rect width="100%" height="100%" fill="#F5F2EE"/>
+<rect x="0" y="0" width="1180" height="6" rx="0.0" fill="#C88F5A" fill-opacity="1.0"/>
+<rect x="0" y="6" width="1180" height="92" rx="0.0" fill="#1B3A52" fill-opacity="1.0"/>
+<text x="44" y="40" text-anchor="start" font-family="Montserrat, Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F2EE" style="">Top 10 Players by OPS</text>
+<text x="44" y="68" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#D6E3E3" style="">The board is top-heavy: Megan Grant and Jordan Woolery separate from the rest of the class.</text>
+<text x="40" y="124" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#4F6D7A" style="">Only players with more than 80 AB are included so the leaderboard stays meaningful.</text>
+<line x1="350" y1="132" x2="350" y2="680" stroke="#D6CEC4" stroke-width="1.2" stroke-opacity="1.0"/>
+<line x1="350" y1="680" x2="1120" y2="680" stroke="#D6CEC4" stroke-width="1.2" stroke-opacity="1.0"/>
+<line x1="350.0" y1="680" x2="350.0" y2="686" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="350.0" y="704" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">0.00</text>
+<line x1="542.5" y1="680" x2="542.5" y2="686" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="542.5" y="704" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">0.55</text>
+<line x1="735.0" y1="680" x2="735.0" y2="686" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="735.0" y="704" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">1.10</text>
+<line x1="927.5" y1="680" x2="927.5" y2="686" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="927.5" y="704" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">1.65</text>
+<line x1="1120.0" y1="680" x2="1120.0" y2="686" stroke="#B7AEA4" stroke-width="1.0" stroke-opacity="1.0"/>
+<text x="1120.0" y="704" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#6C757D" style="">2.19</text>
+<text x="30" y="170.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Megan Grant  (UCLA)</text>
+<rect x="350" y="150.0" width="687.5" height="28.080000000000002" rx="8" fill="#C88F5A" fill-opacity="0.95"/>
+<text x="1047.5" y="170.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.959 | 29 HR</text>
+<text x="30" y="224.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Jordan Woolery  (UCLA)</text>
+<rect x="350" y="204.0" width="648.0127125134018" height="28.080000000000002" rx="8" fill="#C88F5A" fill-opacity="0.95"/>
+<text x="1008.0127125134018" y="224.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.846 | 25 HR</text>
+<text x="30" y="278.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Katie Stewart  (Texas)</text>
+<rect x="350" y="258.0" width="618.4235717567774" height="28.080000000000002" rx="8" fill="#1B3A52" fill-opacity="0.95"/>
+<text x="978.4235717567774" y="278.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.762 | 22 HR</text>
+<text x="30" y="332.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Emily LeGette  (North Carolina)</text>
+<rect x="350" y="312.0" width="597.6444835860519" height="28.080000000000002" rx="8" fill="#1B3A52" fill-opacity="0.95"/>
+<text x="957.6444835860519" y="332.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.703 | 22 HR</text>
+<text x="30" y="386.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Isa Torres  (Florida State)</text>
+<rect x="350" y="366.0" width="584.6575534793485" height="28.080000000000002" rx="8" fill="#1B3A52" fill-opacity="0.95"/>
+<text x="944.6575534793485" y="386.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.666 | 10 HR</text>
+<text x="30" y="440.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Aglaia Rudd  (Robert Morris)</text>
+<rect x="350" y="420.0" width="580.9720733139327" height="28.080000000000002" rx="8" fill="#1B3A52" fill-opacity="0.95"/>
+<text x="940.9720733139327" y="440.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.655 | 12 HR</text>
+<text x="30" y="494.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Kate Lappe  (Northern Iowa)</text>
+<rect x="350" y="474.0" width="562.4393730535559" height="28.080000000000002" rx="8" fill="#1B3A52" fill-opacity="0.95"/>
+<text x="922.4393730535559" y="494.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.602 | 16 HR</text>
+<text x="30" y="548.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Ella Parker  (Oklahoma)</text>
+<rect x="350" y="528.0" width="561.5969775871752" height="28.080000000000002" rx="8" fill="#1B3A52" fill-opacity="0.95"/>
+<text x="921.5969775871752" y="548.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.600 | 18 HR</text>
+<text x="30" y="602.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Lauren Holt  (Cornell)</text>
+<rect x="350" y="582.0" width="560.2982845765048" height="28.080000000000002" rx="8" fill="#1B3A52" fill-opacity="0.95"/>
+<text x="920.2982845765048" y="602.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.596 | 16 HR</text>
+<text x="30" y="656.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1B3A52" style="">Courtney Poulich  (Robert Morris)</text>
+<rect x="350" y="636.0" width="555.1737121560219" height="28.080000000000002" rx="8" fill="#1B3A52" fill-opacity="0.95"/>
+<text x="915.1737121560219" y="656.2176" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#1B3A52" style="">1.582 | 18 HR</text>
+<text x="1120" y="124" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="#4F6D7A" style="">The peak bats are unmistakable, and the next tier is still elite.</text>
+</svg>

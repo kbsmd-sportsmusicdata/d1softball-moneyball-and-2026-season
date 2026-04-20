@@ -1,0 +1,8 @@
+{
+  "dataset_label": "softball-repo",
+  "dataset_version": "2026-04-16",
+  "source_root": ".",
+  "profile_name": "softball",
+  "teams_path": "data/processed/2026-04-16/teams.csv",
+  "players_path": "data/processed/2026-04-16/players.csv"
+}

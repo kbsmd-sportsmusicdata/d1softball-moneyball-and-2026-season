@@ -16,6 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from scripts.manual_notebook import render_notebook_html
+
 PALETTE = {
     "navy": "#1B3A52",
     "copper": "#C88F5A",
@@ -153,7 +155,7 @@ def main() -> None:
         "eda_run_dir": str(args.eda_run_dir),
         "figure_count": len(chart_refs),
     }
-    report_md = render_report(teams, players, rpi, chart_refs, args.eda_run_dir)
+    report_md = render_report(teams, players, rpi, chart_refs, args.eda_run_dir, output_dir)
     (output_dir / "report.md").write_text(report_md)
     report_data = build_report_data(
         teams=teams,
@@ -169,8 +171,10 @@ def main() -> None:
     )
     (output_dir / "report_data.json").write_text(json.dumps(report_data, indent=2))
     (output_dir / "report_metadata.json").write_text(json.dumps(report_metadata, indent=2))
+    (output_dir / "notebook.html").write_text(render_notebook_html(report_data, output_dir), encoding="utf-8")
 
     print(f"wrote {output_dir / 'report.md'}")
+    print(f"wrote {output_dir / 'notebook.html'}")
 
 
 def _prepare_teams(teams: pd.DataFrame) -> pd.DataFrame:
@@ -547,6 +551,12 @@ def build_report_data(
             "report_dir": str(output_dir),
             "report_markdown_path": str(output_dir / "report.md"),
             "report_metadata_path": str(output_dir / "report_metadata.json"),
+            "report_notebook_path": str(output_dir / "notebook.html"),
+            "public_notebook_path": "/reports/d1softball_manual_april2026/notebook.html",
+            "public_bundle_dir": "/reports/d1softball_manual_april2026",
+            "public_report_markdown_path": "/reports/d1softball_manual_april2026/report.md",
+            "public_report_metadata_path": "/reports/d1softball_manual_april2026/report_metadata.json",
+            "public_figures_dir": "/reports/d1softball_manual_april2026/figures",
         },
         "report_metadata": report_metadata,
         "coverage": {
@@ -567,7 +577,14 @@ def _fmt(num: Any, digits: int = 3) -> str:
         return str(num)
 
 
-def render_report(teams: pd.DataFrame, players: pd.DataFrame, rpi: pd.DataFrame, charts: list[FigureRef], eda_run_dir: Path) -> str:
+def render_report(
+    teams: pd.DataFrame,
+    players: pd.DataFrame,
+    rpi: pd.DataFrame,
+    charts: list[FigureRef],
+    eda_run_dir: Path,
+    output_dir: Path,
+) -> str:
     valid_pitch = teams[pd.to_numeric(teams["ip"], errors="coerce") > 0].copy()
     valid_pitch["era"] = pd.to_numeric(valid_pitch["era"], errors="coerce")
     valid_pitch["whip"] = pd.to_numeric(valid_pitch["whip"], errors="coerce")
@@ -636,7 +653,7 @@ def render_report(teams: pd.DataFrame, players: pd.DataFrame, rpi: pd.DataFrame,
     lines.append("## Figures")
     lines.append("")
     for idx, chart in enumerate(charts, start=1):
-        rel = chart.path.relative_to(REPORT_DIR)
+        rel = chart.path.relative_to(output_dir)
         lines.append(f"### Figure {idx}")
         lines.append("")
         lines.append(f"![Figure {idx}]({rel.as_posix()})")

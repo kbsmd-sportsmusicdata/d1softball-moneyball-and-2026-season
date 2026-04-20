@@ -70,21 +70,30 @@ GitHub Actions:
 - `build-report-bundle` runs the same workflow in GitHub with a `handoff_mode` input (`none`, `related`, or `full`).
 - `deploy-dashboard` now refreshes Pages when the report bundle changes under `reports/d1softball_manual_april2026/`.
 
-## EDA Analyst Agent v1
+## EDA Analyst Agent v2
 
 Run notebook-style EDA on the latest processed team/player datasets:
 
 ```bash
-python3 scripts/eda_analyst_agent.py
+python3 -m eda_agent
 ```
 
 Optional path overrides:
 
 ```bash
-python3 scripts/eda_analyst_agent.py \
+python3 -m eda_agent \
   --teams-path data/processed/2026-04-10/teams.csv \
   --players-path data/processed/2026-04-10/players.csv \
   --run-label first-pass
+```
+
+Profile-driven use across repos:
+
+```bash
+python3 -m eda_agent \
+  --repo-root /path/to/repo \
+  --profile basketball \
+  --run-label basketball-check
 ```
 
 Outputs per run:
@@ -101,6 +110,21 @@ Outputs per run:
 Dashboard viewer:
 
 - `dashboard/app/eda/page.tsx` renders the latest run from `eda_runs/latest.json`.
+
+Examples:
+
+- `examples/eda_agent.manifest.json`
+- `examples/profiles/softball.json`
+- `examples/profiles/basketball.json`
+
+GitHub Actions:
+
+- `eda-agent` runs the v2 CLI on a schedule or manually.
+- Manual runs can choose `source_mode` in the Actions UI:
+  - `repo_layout` ignores manifests and uses the latest `data/processed/*`
+  - `manifest` uses `eda_agent.manifest.json` if present
+- It auto-picks a profile from the resolved dataset unless you override `--profile`.
+- `deploy-dashboard` now redeploys when `eda_runs/` changes so the `/eda` viewer stays current.
 
 ## Data outputs
 

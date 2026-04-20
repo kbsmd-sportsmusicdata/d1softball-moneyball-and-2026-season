@@ -1,0 +1,155 @@
+name: eda-agent
+
+on:
+  schedule:
+    - cron: '0 10 * * 1,4'
+    - cron: '0 11 * * 1,4'
+  workflow_dispatch:
+    inputs:
+      run_label:
+        description: "Label for this EDA run"
+        required: false
+        default: "github-actions"
+      source_mode:
+        description: "Pick the dataset source mode for manual runs"
+        required: false
+        default: "repo_layout"
+        type: choice
+        options:
+          - repo_layout
+          - manifest
+      profile_name:
+        description: "Profile override"
+        required: false
+        default: "auto"
+        type: choice
+        options:
+          - auto
+          - softball
+          - basketball
+          - generic
+      manifest_path:
+        description: "Optional path to a repo manifest"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eda-agent
+  cancel-in-progress: false
+
+jobs:
+  run_eda:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Gate to 6:00 AM America/New_York
+        id: gate
+        run: |
+          SHOULD_RUN=$(python scripts/should_run_now.py)
+          echo "should_run=$SHOULD_RUN" >> "$GITHUB_OUTPUT"
+
+      - name: Run EDA agent
+        if: steps.gate.outputs.should_run == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          RUN_LABEL: ${{ inputs.run_label }}
+          SOURCE_MODE: ${{ inputs.source_mode || 'auto' }}
+          PROFILE_NAME: ${{ inputs.profile_name || 'auto' }}
+          MANIFEST_PATH: ${{ inputs.manifest_path }}
+        run: |
+          set -euo pipefail
+          args=(--output-root eda_runs --source-mode "${SOURCE_MODE:-auto}")
+          manifest_file=""
+
+          case "${SOURCE_MODE:-auto}" in
+            repo_layout)
+              args+=(--repo-root .)
+              ;;
+            manifest)
+              if [ -n "${MANIFEST_PATH:-}" ] && [ -f "${MANIFEST_PATH}" ]; then
+                manifest_file="${MANIFEST_PATH}"
+              else
+                for candidate in eda_agent.manifest.json examples/eda_agent.manifest.json; do
+                  if [ -f "${candidate}" ]; then
+                    manifest_file="${candidate}"
+                    break
+                  fi
+                done
+              fi
+
+              if [ -z "${manifest_file}" ]; then
+                echo "Manifest mode was selected but no manifest file was found."
+                exit 1
+              fi
+
+              args+=(--manifest "${manifest_file}" --repo-root .)
+              ;;
+            *)
+              if [ -n "${MANIFEST_PATH:-}" ] && [ -f "${MANIFEST_PATH}" ]; then
+                manifest_file="${MANIFEST_PATH}"
+                args+=(--manifest "${manifest_file}")
+              fi
+              args+=(--repo-root .)
+              ;;
+          esac
+
+          if [ -n "${PROFILE_NAME:-}" ] && [ "${PROFILE_NAME}" != "auto" ]; then
+            args+=(--profile "${PROFILE_NAME}")
+          fi
+
+          run_label="${RUN_LABEL:-github-actions-${GITHUB_RUN_ID}}"
+          args+=(--run-label "${run_label}")
+
+          python3 -m eda_agent "${args[@]}"
+
+      - name: Summarize outputs
+        if: always()
+        run: |
+          {
+            echo "## EDA agent"
+            echo ""
+            echo "- Source mode: \`${{ inputs.source_mode || 'auto' }}\`"
+            echo "- Profile input: \`${{ inputs.profile_name || 'auto' }}\`"
+            echo "- Manifest input: \`${{ inputs.manifest_path || 'auto-detect' }}\`"
+            echo "- Run label: \`${{ inputs.run_label || 'github-actions' }}\`"
+            echo ""
+            if [ -f eda_runs/latest.json ]; then
+              echo "### Latest pointer"
+              echo '```json'
+              cat eda_runs/latest.json
+              echo '```'
+            else
+              echo "No latest EDA pointer found."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload EDA artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: eda-runs
+          path: eda_runs
+          if-no-files-found: warn
+
+      - name: Commit updated EDA runs if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add eda_runs/
+          if git diff --cached --quiet; then
+            echo "No EDA changes to commit"
+          else
+            git commit -m "chore(eda): refresh analyst runs"
+            git push
+          fi
